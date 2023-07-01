@@ -17,7 +17,7 @@ Mine and sell ores for coins, use coins to upgrade mining speed, make more coins
 __Home page__
 
  The Home page wiill have the option to start a new game or load progress from a previous session. There will also be a link to a tutorial page
-  ![Nav Bar](https://github.com/Derek1980D/Baking-Recipes/blob/main/assets/images/navbar.png) 
+ 
 
 __The Game__ 
 
@@ -56,6 +56,11 @@ The live link can be found here -
 [//]: # (game link here)
 
 ## Credits 
+  ### images
 
+- ore chunk svg Created by Deivid Sáenz
+from the Noun Project https://thenounproject.com/deivid.saenz/
+- pickaxe Created by Mr. Minuvi https://thenounproject.com/minuvi/
+from the Noun Project
 
 Lots of help here https://www.w3schools.com/
