@@ -56,11 +56,10 @@ The live link can be found here -
 [//]: # (game link here)
 
 ## Credits 
+Lots of help here https://www.w3schools.com/
   ### images
 
-- ore chunk svg Created by Deivid Sáenz
-from the Noun Project https://thenounproject.com/deivid.saenz/
-- pickaxe Created by Mr. Minuvi https://thenounproject.com/minuvi/
-from the Noun Project
-
-Lots of help here https://www.w3schools.com/
+  - ore chunk Created by Deivid Sáenz https://thenounproject.com/deivid.saenz/
+  - pickaxe Created by Mr. Minuvi https://thenounproject.com/minuvi/
+  - ingot created by Tolicon https://thenounproject.com/tolicon/
+  - upgrade icon crated by sbts https://thenounproject.com/sbts2018/
