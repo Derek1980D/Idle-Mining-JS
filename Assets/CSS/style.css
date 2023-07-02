@@ -22,29 +22,52 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+.home-link{
+    position: absolute;
+    right: 20px;
 }
 
 /* home page main area */
-#home-page-main {
+#main {
     width: 100%;
     font-size: 32px;
     background-color: rgb(89, 87, 87);
     display: flex;
-    flex: 1 1 auto;
-    justify-content: center;
+    height: 100%;
     align-items: center;
     flex-direction: column;
 }
 
 .intro-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 70%;
+    height: 40%;
     text-align: center;
+}
+
+.newgame-load-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+}
+
+.link-to-tutorial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 /* Footer area styling */
 .links-footer {
-  
+
     display: flex;
+
     justify-content: center;
     align-items: center;
     background-color: dimgray;
