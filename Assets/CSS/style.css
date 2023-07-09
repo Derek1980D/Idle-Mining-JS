@@ -88,3 +88,24 @@ body {
     letter-spacing: 25px;
     color: #3a3a3a;
 }
+
+/* game page */
+#game-header {
+    background-color: dimgray;
+    width: 100%;
+    height: 10%;
+    border-bottom: 2px solid rgb(42, 41, 41);
+}
+#coins-div {
+    color: darkgoldenrod;
+    background-color: black;
+    width: 30%;
+}
+#game-main {
+    height: 100%;
+    background-color: rgb(89, 87, 87);
+}
+#game-footer {
+    border-top: 2px solid rgb(42, 41, 41);
+    height: 10%;
+}
