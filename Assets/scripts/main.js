@@ -88,10 +88,32 @@ let initOre = (oreName) => {
   };
   ore["divs"] = {
     divText: getElement(oreName + "-text"),
+    minerText: getElement(oreName + "-miner-text"),
+    sellText: getElement(oreName + "-sell-text"),
+    //hireButton: getElement(oreName + "-hire-button"),
+    //sellbutton: getElement(oreName + "-sell-button")
   };
 
   ore["update"] = () => {
-   ore.divs.divText.innerHTML = "test copper update text";
+    ore.stats.total += (ore.stats.miners*ore.stats.perMiner)
+    //
+    ore.divs.divText.innerHTML =
+     "<span class='color-orange'>Copper</span>: " +
+     ore.stats.total +
+     "<br>Miners: " +
+     ore.stats.miners +
+     "<br><span class='color-orange'>Copper</span>/Miner: " +
+     ore.stats.perMiner;
+     //
+       ore.divs.minerText.innerHTML =
+         "Cost: " +
+         ore.stats.minerCost +
+         "<span class='color-yellow'> Coins</span>";
+       //
+       ore.divs.sellText.innerHTML =
+         "<span class='color-orange'>Copper</span> Value: " +
+         ore.stats.value;
+    
   };
   // add to game ores arrray
   game.ores.push(ore);
