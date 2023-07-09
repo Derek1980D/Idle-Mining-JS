@@ -109,3 +109,37 @@ body {
     border-top: 2px solid rgb(42, 41, 41);
     height: 10%;
 }
+
+
+/* Copper */
+#copper-div {
+    box-shadow: 0 0 5px 5px #d6a36f;
+    margin: 5px;
+    margin-left: 20px;
+    width: 30%;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    color: rgb(144, 160, 174);
+    background-color: rgb(62, 32, 22);
+    border: 2px solid rgb(255, 106, 0);
+    text-align: center;
+}
+
+.color-orange {
+    color: rgb(255, 106, 0);
+}
+
+#hire-copper-miner {
+    border: 1px solid rgb(255, 106, 0);
+    margin: 4px;
+    padding: 4px;
+}
+
+#sell-copper {
+
+    border: 1px solid rgb(255, 106, 0);
+    margin: 4px;
+    padding: 4px;
+
+}

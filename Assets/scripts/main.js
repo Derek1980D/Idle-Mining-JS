@@ -12,8 +12,11 @@ window.onload = () => {
     // some game variables for timing intervals
     game["lastTimeStamp"] = 0;
     game["sinceTimeStamp"] = 0;
+    game["ores"] = [];
     // add coins object to game
-    initCoins(game);
+    initCoins();
+
+    initOre("copper");
     // enter the main game loop
     window.requestAnimationFrame(gameLoop);
   }
@@ -37,19 +40,19 @@ let loadSave = () => {
  * for updating at specific intervals
  */
 let gameLoop = (timestamp) => {
-  
-  
-
   // adding the time between since last here to since
   game.sinceTimeStamp += timestamp - game.lastTimeStamp;
   // since / 1000 should be around a second.
   if (game.sinceTimeStamp / 1000 >= 1) {
     game.coins.update();
     game.sinceTimeStamp = 0;
-    console.log(game.coins.totalCoins);
+    // loop through game ores to update
+    for (const i in game.ores) {
+      game.ores[i].update();
+    }
   }
-  
- game.lastTimeStamp = timestamp;
+
+  game.lastTimeStamp = timestamp;
   window.requestAnimationFrame(gameLoop);
 };
 
@@ -58,14 +61,40 @@ let gameLoop = (timestamp) => {
  * @param {object} game the game to add objects to
  *
  */
-let initCoins = (game) => {
+let initCoins = () => {
   game["coins"] = {};
   game.coins["totalCoins"] = 0;
   game.coins["totalCoinsDiv"] = getElement("coins");
   game.coins["update"] = () => {
     game.coins.totalCoinsDiv.innerHTML = game.coins.totalCoins;
     game.coins.totalCoins++;
+  };
 };
+/**
+ * // change to gernal ore creation, for now just copper
+ *
+ * @param {string} the name(type) of the ore
+ */
+let initOre = (oreName) => {
+  // create and ore object
+  let ore = {};
+  ore["name"] = oreName;
+  ore["stats"] = {
+    total: 0,
+    miners: 1,
+    minerCost: 10,
+    perMiner: 1,
+    value: 1,
+  };
+  ore["divs"] = {
+    divText: getElement(oreName + "-text"),
+  };
+
+  ore["update"] = () => {
+   ore.divs.divText.innerHTML = "test copper update text";
+  };
+  // add to game ores arrray
+  game.ores.push(ore);
 };
 
 /**
