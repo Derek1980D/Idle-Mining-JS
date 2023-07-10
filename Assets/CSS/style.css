@@ -111,62 +111,12 @@ body {
 }
 
 
-/*  comma and 2nd class name for common elements  */
-.copper-css,
-.silver-css {
-    box-shadow: 0 0 5px 5px #d6a36f;
-    margin: 5px;
-    margin-left: 20px;
-    width: 50%;
-    display: flex;
-    height: auto;
-    flex-direction: column;
-    color: rgb(144, 160, 174);
-    background-color: rgb(62, 32, 22);
-    border: 2px solid rgb(255, 106, 0);
-    text-align: center;
-}
-
-.hire-copper-miner-css{
-    border: 1px solid rgb(255, 106, 0);
-    margin: 4px;
-    padding: 4px;
-}
-
-.sell-copper-css {
-
-    border: 1px solid rgb(255, 106, 0);
-    margin: 4px;
-    padding: 4px;
-
-}
-
-.silver-css {
-    box-shadow: 0 0 5px 5px #d6a36f;
-    margin: 5px;
-    margin-left: 20px;
-    width: 50%;
-    display: flex;
-    height: auto;
-    flex-direction: column;
-    color: rgb(144, 160, 174);
-    background-color: rgb(62, 32, 22);
-    border: 2px solid rgb(177, 165, 156);
-    text-align: center;
-}
-
-.color-orange {
-    color: orange;
-}
-.color-silver {
-    color: rgb(225, 217, 217);
-}
-
-/* Ore div layout */
+/* Ore div common styling
+ specifc to ore will be set up in javascript */
 .ore-div-css {
         margin: 5px;
         margin-left: 20px;
-        width: 50%;
+        width: 30%;
         display: flex;
         height: auto;
         flex-direction: column;

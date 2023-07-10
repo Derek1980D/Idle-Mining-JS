@@ -19,6 +19,9 @@ window.onload = () => {
 
    
     initOre("Copper", "orange");
+    initOre("Silver", "Silver");
+    initOre("Gold", "gold");
+    initOre("Red", "red");
     
     // enter the main game loop
     window.requestAnimationFrame(gameLoop);
