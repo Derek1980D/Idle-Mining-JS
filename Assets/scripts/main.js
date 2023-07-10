@@ -18,8 +18,8 @@ window.onload = () => {
     //initOre("copper");
 
    
-    initOre("Silver", "silver");
-    initOre("Copper", "blue");
+    initOre("Copper", "orange");
+    
     // enter the main game loop
     window.requestAnimationFrame(gameLoop);
   }
@@ -65,9 +65,12 @@ let gameLoop = (timestamp) => {
  *
  */
 let initCoins = () => {
+  const coinsColor = "yellow"
   game["coins"] = {};
+  game.coins["color"] = coinsColor;
   game.coins["totalCoins"] = 0;
   game.coins["totalCoinsDiv"] = getElement("coins-div");
+  game.coins.totalCoinsDiv.style.color = coinsColor;
   game.coins["update"] = () => {
     game.coins.totalCoinsDiv.innerHTML = game.coins.totalCoins;
     game.coins.totalCoins++;
@@ -102,15 +105,14 @@ let initOre = (oreName, color) => {
   ore["update"] = () => {
     ore.stats.total += ore.stats.miners * ore.stats.perMiner;
     //
-    ore.divs.divText.innerHTML = `<span style='color:${color}'>${ore.name}</span>: ${ore.stats.total}<br>Miners: ${ore.stats.miners}<br><span style='color:${color}'>Copper</span>/Miner: ${ore.stats.perMiner}`;
+    ore.divs.divText.innerHTML = `<span style='color:${color}'>${ore.name}</span>: ${ore.stats.total}<br>Miners: ${ore.stats.miners}<br><span style='color:${color}'>${ore.name}</span>/Miner: ${ore.stats.perMiner}`;
     //
     ore.divs.minerText.innerHTML =
       "Cost: " +
       ore.stats.minerCost +
-      "<span style='color-yellow'> Coins</span>";
+      `<span style='color:${game.coins.color}'> Coins</span>`;
     //
-    ore.divs.sellText.innerHTML =
-      "<span class='color-orange'>Copper</span> Value: " + ore.stats.value;
+    ore.divs.sellText.innerHTML = `<span style='color:${color}'>${ore.name}</span> Value:  <span style='color:${game.coins.color}'> ${ore.stats.value}</span>     `;
   };
   // add to game ores arrray
   game.ores.push(ore);
