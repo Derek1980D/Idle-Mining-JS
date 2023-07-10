@@ -101,7 +101,7 @@ body {
     background-color: black;
     width: 30%;
 }
-#game-main {
+#game-main-div {
     height: 100%;
     background-color: rgb(89, 87, 87);
 }
@@ -111,8 +111,9 @@ body {
 }
 
 
-/* Copper */
-#copper-div {
+/*  comma and 2nd class name for common elements  */
+.copper-css,
+.silver-css {
     box-shadow: 0 0 5px 5px #d6a36f;
     margin: 5px;
     margin-left: 20px;
@@ -126,20 +127,51 @@ body {
     text-align: center;
 }
 
+.hire-copper-miner-css{
+    border: 1px solid rgb(255, 106, 0);
+    margin: 4px;
+    padding: 4px;
+}
+
+.sell-copper-css {
+
+    border: 1px solid rgb(255, 106, 0);
+    margin: 4px;
+    padding: 4px;
+
+}
+
+.silver-css {
+    box-shadow: 0 0 5px 5px #d6a36f;
+    margin: 5px;
+    margin-left: 20px;
+    width: 50%;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    color: rgb(144, 160, 174);
+    background-color: rgb(62, 32, 22);
+    border: 2px solid rgb(177, 165, 156);
+    text-align: center;
+}
+
 .color-orange {
-    color: rgb(255, 106, 0);
+    color: orange;
+}
+.color-silver {
+    color: rgb(225, 217, 217);
 }
 
-#hire-copper-miner {
-    border: 1px solid rgb(255, 106, 0);
-    margin: 4px;
-    padding: 4px;
-}
-
-#sell-copper {
-
-    border: 1px solid rgb(255, 106, 0);
-    margin: 4px;
-    padding: 4px;
-
+/* Ore div layout */
+.ore-div-css {
+        margin: 5px;
+        margin-left: 20px;
+        width: 50%;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+        background-color: rgb(52, 62, 62);
+        padding: 3px;
+        color:beige;
 }

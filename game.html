@@ -18,21 +18,49 @@
     </header>
     <!-- some quick start info, start new game or load previous save options and
     a link to a tutorial -->
-    <main id="game-main"> 
+    <main id="game-main-div">
         <!-- Copper -->
-        <div id="copper-div">
-            <div id="copper-text-div"></div>
-            <div id="hire-copper-miner">
-                <div id="copper-miner-text-div"></div>
-                <button id="hire-copper-button-div">Hire Miner</button>
-            </div>
+        <!--
+
+
+CHNAGE TO TEMPLATE ORE, IN STYLES. CSS IS JUST FOR LAOUT, SPECIFIC COLORS IN JAVASCRIPT
+var element = document.createElement('style'),
+	sheet;
+
+// Append style element to head
+document.head.appendChild(element);
+
+// Reference to the stylesheet
+sheet = element.sheet;
+
+// In an empty stylesheet, this is incorrect
+var styles1 = '.new-animation-1 {';
+styles1 += 'line-height:150px;'
+styles1 += '}';
+sheet.insertRule(styles1, 0);
+
+var styles2 = '.new-animation-2 {';
+styles2 += 'line-height:100px;'
+styles2 += '}';
+sheet.insertRule(styles2, 2);
+After the 0th position, the next position to be filled should be 1.
+
+        -->
+
+        <template id="ore-template">
             
-            <div id="sell-copper">
-                <div id="copper-sell-text-div"></div>
-                <button id="sell-button-div">sell-copper</button>
-            </div>
-        </div>
-        </div>
+                <div id="template-text-div" class="ore-text-css">test</div>          
+                <div id="template-miner-div">
+                    <div id="template-miner-text-div">s</div>
+                    <button id="hire-template-miner-button">Hire Miner</button>
+                </div>
+            
+                <div id="sell-template-div" class="sell-ore-css">
+                    <div id="sell-template-text-div" class="sell-ore-text-css">s</div>
+                    <button id="sell-template-button">sell-template</button>
+                </div>
+           
+        </template>
     </main>
     <!-- social links - facebook, twitter, wiki-->
     <footer class="game-footer">link icons here</footer>

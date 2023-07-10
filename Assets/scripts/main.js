@@ -15,8 +15,11 @@ window.onload = () => {
     game["ores"] = [];
     // add coins object to game
     initCoins();
+    //initOre("copper");
 
-    initOre("copper");
+   
+    initOre("Silver", "silver");
+    initOre("Copper", "blue");
     // enter the main game loop
     window.requestAnimationFrame(gameLoop);
   }
@@ -64,7 +67,7 @@ let gameLoop = (timestamp) => {
 let initCoins = () => {
   game["coins"] = {};
   game.coins["totalCoins"] = 0;
-  game.coins["totalCoinsDiv"] = getElement("coins");
+  game.coins["totalCoinsDiv"] = getElement("coins-div");
   game.coins["update"] = () => {
     game.coins.totalCoinsDiv.innerHTML = game.coins.totalCoins;
     game.coins.totalCoins++;
@@ -75,7 +78,9 @@ let initCoins = () => {
  *
  * @param {string} the name(type) of the ore
  */
-let initOre = (oreName) => {
+let initOre = (oreName, color) => {
+   crateOreDiv(oreName, color);
+  
   // create and ore object
   let ore = {};
   ore["name"] = oreName;
@@ -87,33 +92,25 @@ let initOre = (oreName) => {
     value: 1,
   };
   ore["divs"] = {
-    divText: getElement(oreName + "-text"),
-    minerText: getElement(oreName + "-miner-text"),
-    sellText: getElement(oreName + "-sell-text"),
+    divText: getElement(oreName + "-text-div"),
+    minerText: getElement(oreName + "-miner-text-div"),
+    sellText: getElement("sell-"+ oreName+ "-text-div"),
     //hireButton: getElement(oreName + "-hire-button"),
     //sellbutton: getElement(oreName + "-sell-button")
   };
 
   ore["update"] = () => {
-    ore.stats.total += (ore.stats.miners*ore.stats.perMiner)
+    ore.stats.total += ore.stats.miners * ore.stats.perMiner;
     //
-    ore.divs.divText.innerHTML =
-     "<span class='color-orange'>Copper</span>: " +
-     ore.stats.total +
-     "<br>Miners: " +
-     ore.stats.miners +
-     "<br><span class='color-orange'>Copper</span>/Miner: " +
-     ore.stats.perMiner;
-     //
-       ore.divs.minerText.innerHTML =
-         "Cost: " +
-         ore.stats.minerCost +
-         "<span class='color-yellow'> Coins</span>";
-       //
-       ore.divs.sellText.innerHTML =
-         "<span class='color-orange'>Copper</span> Value: " +
-         ore.stats.value;
-    
+    ore.divs.divText.innerHTML = `<span style='color:${color}'>${ore.name}</span>: ${ore.stats.total}<br>Miners: ${ore.stats.miners}<br><span style='color:${color}'>Copper</span>/Miner: ${ore.stats.perMiner}`;
+    //
+    ore.divs.minerText.innerHTML =
+      "Cost: " +
+      ore.stats.minerCost +
+      "<span style='color-yellow'> Coins</span>";
+    //
+    ore.divs.sellText.innerHTML =
+      "<span class='color-orange'>Copper</span> Value: " + ore.stats.value;
   };
   // add to game ores arrray
   game.ores.push(ore);
@@ -125,5 +122,32 @@ let initOre = (oreName) => {
  * @returns the DOM element named
  */
 let getElement = (elementName) => {
-  return document.getElementById(elementName + "-div");
+  return document.getElementById(elementName);
+};
+
+/**
+ * 
+ * @param {string} name Name of the ore
+ * @param {string} color Color for div styling
+ */
+let crateOreDiv = (name, color) => {
+  // copy the template div
+  let oreDiv = getElement("ore-template");
+  // replace any occurrences of template with parameter name
+  let newinnerHTML = oreDiv.innerHTML.replace(/template/g, name);
+  // create a new div to contain the new html
+  newDiv = document.createElement("div");
+  newDiv.setAttribute("id", name + "-div");
+  newDiv.setAttribute("class", "ore-div-css");
+  newDiv.innerHTML = newinnerHTML;
+  // append main div with the new ore div
+  let mainDiv = getElement("game-main-div");
+  mainDiv.appendChild(newDiv);
+  // new ore div elements specifc style
+  newDiv.style.border = "2px solid " + color;
+  let minerDiv = getElement(name + "-miner-div");
+  minerDiv.style.border = "2px solid " + color;
+  let sellDiv = getElement("sell-" + name + "-div");
+  sellDiv.style.border = "2px solid " + color;
+  sellDiv.style.marginTop = "3px";
 };
