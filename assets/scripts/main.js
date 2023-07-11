@@ -18,11 +18,13 @@ window.onload = () => {
     //initOre("copper");
 
    
-    initOre("Copper", "orange");
-    initOre("Silver", "Silver");
-    initOre("Gold", "gold");
-    initOre("Red", "red");
+    initOre("Copper", "orange", 1);
+    initOre("Silver", "Silver", 10);
+    initOre("Gold", "gold", 100);
     
+     for (const i in game.ores) {
+       game.ores[i].update();
+     }
     // enter the main game loop
     window.requestAnimationFrame(gameLoop);
   }
@@ -76,34 +78,53 @@ let initCoins = () => {
   game.coins.totalCoinsDiv.style.color = coinsColor;
   game.coins["update"] = () => {
     game.coins.totalCoinsDiv.innerHTML = game.coins.totalCoins;
-    game.coins.totalCoins++;
+   
   };
 };
 /**
  * // change to gernal ore creation, for now just copper
  *
- * @param {string} the name(type) of the ore
+ * @param {string} oreName name(type) of the ore
+ * @param {string} color color of the styling
+ * @param {integer} _multiplier the values multiplier
  */
-let initOre = (oreName, color) => {
+let initOre = (oreName, color, _multiplier) => {
    crateOreDiv(oreName, color);
   
   // create and ore object
   let ore = {};
   ore["name"] = oreName;
+  ore["multiplier"] = _multiplier;
   ore["stats"] = {
     total: 0,
     miners: 1,
-    minerCost: 10,
+    minerCost: 10 * _multiplier,
     perMiner: 1,
-    value: 1,
+    value: 1 * _multiplier
+    ,
   };
   ore["divs"] = {
     divText: getElement(oreName + "-text-div"),
     minerText: getElement(oreName + "-miner-text-div"),
-    sellText: getElement("sell-"+ oreName+ "-text-div"),
-    //hireButton: getElement(oreName + "-hire-button"),
-    //sellbutton: getElement(oreName + "-sell-button")
+    sellText: getElement("sell-"+ oreName+ "-text-div") 
   };
+
+  ore["buttons"] = {
+    hireButton: getElement( "hire-" + oreName +"-miner-button"),
+    sellButton: getElement("sell-" + oreName + "-button"),
+  };
+  
+  ore.buttons.hireButton.addEventListener("click", ()=> {
+    if (game.coins.totalCoins >= ore.stats.minerCost) {
+      console.log("can buy");
+    }
+    console.log("button clicked");
+  })
+
+  ore.buttons.sellButton.addEventListener("click", () => {
+    game.coins.totalCoins += (ore.stats.total*ore.stats.value);
+    ore.stats.total = 0;
+  });
 
   ore["update"] = () => {
     ore.stats.total += ore.stats.miners * ore.stats.perMiner;
@@ -151,8 +172,8 @@ let crateOreDiv = (name, color) => {
   // new ore div elements specifc style
   newDiv.style.border = "2px solid " + color;
   let minerDiv = getElement(name + "-miner-div");
-  minerDiv.style.border = "2px solid " + color;
+  minerDiv.style.border = "1px solid " + color;
   let sellDiv = getElement("sell-" + name + "-div");
-  sellDiv.style.border = "2px solid " + color;
+  sellDiv.style.border = "1px solid " + color;
   sellDiv.style.marginTop = "3px";
 };
