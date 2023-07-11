@@ -19,8 +19,9 @@ window.onload = () => {
 
    
     initOre("Copper", "orange", 1);
-    initOre("Silver", "Silver", 10);
-    initOre("Gold", "gold", 100);
+    createUnlockOreDiv("silver", 100);
+    //initOre("Silver", "Silver", 10);
+    //initOre("Gold", "gold", 100);
     
      for (const i in game.ores) {
        game.ores[i].update();
@@ -116,9 +117,12 @@ let initOre = (oreName, color, _multiplier) => {
   
   ore.buttons.hireButton.addEventListener("click", ()=> {
     if (game.coins.totalCoins >= ore.stats.minerCost) {
-      console.log("can buy");
+
+      game.coins.totalCoins-=ore.stats.minerCost;
+      ore.stats.miners+=1;
+      ore.stats.minerCost*=2;
     }
-    console.log("button clicked");
+    
   })
 
   ore.buttons.sellButton.addEventListener("click", () => {
@@ -177,3 +181,32 @@ let crateOreDiv = (name, color) => {
   sellDiv.style.border = "1px solid " + color;
   sellDiv.style.marginTop = "3px";
 };
+
+/**
+ * 
+ * @param {string} name name of next unlock
+ * @param {integer} cost cost of next unlock
+ */
+let createUnlockOreDiv = (name, cost) => {
+  let oreUnlockDiv = getElement("unlock-ore-template");
+ 
+  let newinnerHTML = oreUnlockDiv.innerHTML.replace(/template/g, name);
+   console.log(newinnerHTML);
+   newDiv = document.createElement("div");
+   newDiv.setAttribute("id", name + "unlock-div");
+   newDiv.setAttribute("class", "unlock-ore-div-css");
+   newDiv.innerHTML = newinnerHTML;
+  
+   let mainDiv = getElement("game-main-div");
+   mainDiv.appendChild(newDiv);
+
+   let unlockText = getElement(name + "-unlock-text");
+   unlockText.innerHTML= "Unlock " + name + " for " + cost;
+   let unlockButton = getElement("unlock-" + name + "-button");
+     console.log(unlockButton);
+   unlockButton.addEventListener("click", ()=>{
+    if (game.coins.totalCoins >= cost) {
+       initOre(name, "Silver", 10);
+    }
+   })
+}
