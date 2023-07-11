@@ -1,3 +1,12 @@
+
+// add some code for ore progression, the types and values, and update functions to only
+// progress if another is availible, this leaves options to easily add new ores in later
+// updates, same can be done for crafting which I will add next
+
+
+// windows mode landscape, stats at side top menue side bottom, 2by 2 ores /crafting
+// mobile potrait, stats top, menue bottom
+// scale on size, check aspect ratio for the landcape or  portait
 let game = {};
 
 window.onload = () => {
