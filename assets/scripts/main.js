@@ -3,6 +3,9 @@
 // progress if another is availible, this leaves options to easily add new ores in later
 // updates, same can be done for crafting which I will add next
 
+//and arraay of ore progression in game, each array object stores or name, color, multiplier
+// when crate a new ore from unlock div check for next if empty add a unlock in next game "update"
+
 
 // windows mode landscape, stats at side top menue side bottom, 2by 2 ores /crafting
 // mobile potrait, stats top, menue bottom
@@ -101,7 +104,7 @@ let initCoins = () => {
 let initOre = (oreName, color, _multiplier) => {
    crateOreDiv(oreName, color);
   
-  // create and ore object
+  // create an ore object
   let ore = {};
   ore["name"] = oreName;
   ore["multiplier"] = _multiplier;
@@ -174,14 +177,22 @@ let crateOreDiv = (name, color) => {
   let oreDiv = getElement("ore-template");
   // replace any occurrences of template with parameter name
   let newinnerHTML = oreDiv.innerHTML.replace(/template/g, name);
+  
+  /// !!!!!!!!!! if game.progression isnt empty create 2 containers, one for the ore and one for the unlock ore else create 1
+  //// !!!!!!!!!! remove create container from create unlock div
+  // create a new ore div cointainer 
+  let newConatiner = document.createElement("div")
+  newConatiner.setAttribute("id", name + "-div");
+  newConatiner.setAttribute("class", "ore-div-container-css");
+  let mainDiv = getElement("play-area-div");
+  mainDiv.appendChild(newConatiner);
   // create a new div to contain the new html
-  newDiv = document.createElement("div");
+  let newDiv = document.createElement("div");
   newDiv.setAttribute("id", name + "-div");
   newDiv.setAttribute("class", "ore-div-css");
   newDiv.innerHTML = newinnerHTML;
   // append main div with the new ore div
-  let mainDiv = getElement("game-main-div");
-  mainDiv.appendChild(newDiv);
+  newConatiner.appendChild(newDiv);
   // new ore div elements specifc style
   newDiv.style.border = "2px solid " + color;
   let minerDiv = getElement(name + "-miner-div");
@@ -189,6 +200,11 @@ let crateOreDiv = (name, color) => {
   let sellDiv = getElement("sell-" + name + "-div");
   sellDiv.style.border = "1px solid " + color;
   sellDiv.style.marginTop = "3px";
+
+
+  // !!!!!!!! if game.progression has some elements left then
+  //          create unlock div
+  // !!!!!! --- remove unlock div crateion from other part of code
 };
 
 /**
@@ -200,14 +216,21 @@ let createUnlockOreDiv = (name, cost) => {
   let oreUnlockDiv = getElement("unlock-ore-template");
  
   let newinnerHTML = oreUnlockDiv.innerHTML.replace(/template/g, name);
-   console.log(newinnerHTML);
+
+let newConatiner = document.createElement("div");
+newConatiner.setAttribute("id", name + "-div");
+newConatiner.setAttribute("class", "ore-div-container-css");
+let mainDiv = getElement("play-area-div");
+mainDiv.appendChild(newConatiner);
+
+   
    newDiv = document.createElement("div");
    newDiv.setAttribute("id", name + "unlock-div");
    newDiv.setAttribute("class", "unlock-ore-div-css");
    newDiv.innerHTML = newinnerHTML;
   
-   let mainDiv = getElement("game-main-div");
-   mainDiv.appendChild(newDiv);
+   newConatiner.appendChild(newDiv);
+   
 
    let unlockText = getElement(name + "-unlock-text");
    unlockText.innerHTML= "Unlock " + name + " for " + cost;
@@ -216,6 +239,11 @@ let createUnlockOreDiv = (name, cost) => {
    unlockButton.addEventListener("click", ()=>{
     if (game.coins.totalCoins >= cost) {
        initOre(name, "Silver", 10);
+       newConatiner.remove();
+       createUnlockOreDiv("gold", 100);
     }
    })
+
+   //temporary, remove once progression implemented
+   
 }

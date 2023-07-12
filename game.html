@@ -13,16 +13,20 @@
 
 <body>
     <!-- coins info, link to home screen/tutorial-->
-    <header id="game-header">
-        <div id="coins-div">Coins : 0</div>
-    </header>
+  
+       
+   
     <!-- some quick start info, start new game or load previous save options and
     a link to a tutorial -->
     <main id="game-main-div">
-        <!-- Copper -->
+        <div id="stats-div">stats
+         <div id="coins-div">Coins : 0</div>
+        </div>
+        <div id="play-area-div"></div>
+        <div id="game-menu-div">menu</div>
+        
         <!--
-
-
+            
 CHNAGE TO TEMPLATE ORE, IN STYLES. CSS IS JUST FOR LAOUT, SPECIFIC COLORS IN JAVASCRIPT
 var element = document.createElement('style'),
 	sheet;
@@ -47,28 +51,29 @@ After the 0th position, the next position to be filled should be 1.
 
         -->
 
-        <template id="ore-template">
-            
-                <div id="template-text-div" class="ore-text-css">test</div>          
-                <div id="template-miner-div">
-                    <div id="template-miner-text-div">s</div>
-                    <button id="hire-template-miner-button">Hire Miner</button>
-                </div>
-            
-                <div id="sell-template-div" class="sell-ore-css">
-                    <div id="sell-template-text-div" class="sell-ore-text-css">s</div>
-                    <button id="sell-template-button">sell-template</button>
-                </div>
-           
-        </template>
-        <template id="unlock-ore-template">
-            <div id="template-unlock-text"> cost to unlock oretype
-            </div>
-            <button id="unlock-template-button">unlock new ore</button>
-        </template>
+       
     </main>
-    <!-- social links - facebook, twitter, wiki-->
-    <footer class="game-footer">link icons here</footer>
+<!-- Templates -->
+<template id="ore-template">
+   
+        <div id="template-text-div" class="ore-text-css">test</div>
+        <div id="template-miner-div">
+            <div id="template-miner-text-div">s</div>
+            <button id="hire-template-miner-button">Hire Miner</button>
+        </div>
+    
+        <div id="sell-template-div" class="sell-ore-css">
+            <div id="sell-template-text-div" class="sell-ore-text-css">s</div>
+            <button id="sell-template-button">sell-template</button>
+        </div>
+    
+
+</template>
+<template id="unlock-ore-template">
+    <div id="template-unlock-text"> cost to unlock oretype
+    </div>
+    <button id="unlock-template-button">unlock new ore</button>
+</template>
 </body>
 
 </html>
