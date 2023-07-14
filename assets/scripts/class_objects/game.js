@@ -4,7 +4,7 @@ import { createUnlockOreDiv } from "../utils/createUnlockDiv.js";
 import { getOreProgression } from "../utils/oreProgression.js";
 export function newGame() {
   let game = {};
-  game["active-area"] = "mine"
+
   // some game variables for timing intervals
   game["lastTimeStamp"] = 0;
   game["sinceTimeStamp"] = 0;

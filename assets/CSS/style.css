@@ -137,16 +137,32 @@ body {
     }
 }
 
-#play-area-div {
-    display: flex;
-    flex-wrap: wrap;
+.play-area-div {
     height: 100%;
-    background-color: #D5EEC7;
     grid-row-start: 1;
     grid-column-start: 1;
     grid-row-end: 3;
     grid-column-end: 2;
+    background-color: #3a3a3a;
+    position: relative;
+}
 
+.ore-play-area {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    background-color: #D5EEC7;
+    position: absolute;
+}
+.smelting-play-area {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    background-color: #8fb976;
+    position: absolute;
+    display: none;
 }
 
 #stats-div {

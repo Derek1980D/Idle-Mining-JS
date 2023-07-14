@@ -1,8 +1,8 @@
 import { getElement } from "../utils/getEle.js";
-import { crateOreDiv } from "../utils/createOreDiv.js";
+import { createOreDiv } from "../utils/createOreDiv.js";
 
 export function initOre(game, oreName, color, _multiplier) {
-  crateOreDiv(oreName, color);
+  createOreDiv(oreName, color);
 
   // create an ore object
   let ore = {} ;

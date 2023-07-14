@@ -5,7 +5,7 @@ import { getElement } from "./getEle.js";
  * @param {string} name Name of the ore
  * @param {string} color Color for div styling
  */
-export function crateOreDiv(name, color) {
+export function createOreDiv(name, color) {
   // copy the template div
   let oreDiv = getElement("ore-template");
   // replace any occurrences of template with parameter name
@@ -17,7 +17,7 @@ export function crateOreDiv(name, color) {
   let newConatiner = document.createElement("div");
   newConatiner.setAttribute("id", name + "-div");
   newConatiner.setAttribute("class", "ore-div-container-css");
-  let mainDiv = getElement("play-area-div");
+  let mainDiv = getElement("ore-play-area-div");
   mainDiv.appendChild(newConatiner);
   // create a new div to contain the new html
   let newDiv = document.createElement("div");
