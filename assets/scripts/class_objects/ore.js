@@ -1,11 +1,11 @@
 import { getElement } from "../utils/getEle.js";
-import { crateOreDiv } from "../utils/createOre.js";
+import { crateOreDiv } from "../utils/createOreDiv.js";
 
-export function initOreA(game, oreName, color, _multiplier) {
+export function initOre(game, oreName, color, _multiplier) {
   crateOreDiv(oreName, color);
 
   // create an ore object
-  let ore = {};
+  let ore = {} ;
   ore["name"] = oreName;
   ore["multiplier"] = _multiplier;
   ore["stats"] = {
@@ -51,6 +51,6 @@ export function initOreA(game, oreName, color, _multiplier) {
     //
     ore.divs.sellText.innerHTML = `<span style='color:${color}'>${ore.name}</span> Value:  <span style='color:${game.coins.color}'> ${ore.stats.value}</span>     `;
   };
-  // add to game ores arrray
   game.ores.push(ore);
+  //return(ore);
 }

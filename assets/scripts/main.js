@@ -1,7 +1,8 @@
-import { initOreA } from "./class_objects/ore.js";
-import { newGame } from "./class_objects/game.js";
+
+import { newGame } from "./class_objects/game.js"
 
 let game = newGame();
+
 // add some code for ore progression, the types and values, and update functions to only
 // progress if another is availible, this leaves options to easily add new ores in later
 // updates, same can be done for crafting which I will add next
@@ -20,9 +21,6 @@ window.onload = () => {
   }
   if (window.location.href.includes("game.html")) {
    
-
-    initOreA(game, "copper", "blue", 3);
- 
      for (const i in game.ores) {
        game.ores[i].update();
      }
@@ -49,9 +47,10 @@ let loadSave = () => {
  * for updating at specific intervals
  */
 let gameLoop = (timestamp) => {
-  // adding the time between since last here to since
+  // get time past since last here
   game.sinceTimeStamp += timestamp - game.lastTimeStamp;
-  // since / 1000 should be around a second.
+  
+  // Update every second
   if (game.sinceTimeStamp / 1000 >= 1) {
     game.coins.update();
     game.sinceTimeStamp = 0;

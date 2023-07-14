@@ -1,10 +1,11 @@
 import { getElement } from "./getEle.js";
+import { initOre } from "../class_objects/ore.js";
 /**
  *
  * @param {string} name name of next unlock
  * @param {integer} cost cost of next unlock
  */
-export function createUnlockOreDiv(name, cost) {
+export function createUnlockOreDiv(game, name, cost) {
   let oreUnlockDiv = getElement("unlock-ore-template");
 
   let newinnerHTML = oreUnlockDiv.innerHTML.replace(/template/g, name);
@@ -15,7 +16,7 @@ export function createUnlockOreDiv(name, cost) {
   let mainDiv = getElement("play-area-div");
   mainDiv.appendChild(newConatiner);
 
-  newDiv = document.createElement("div");
+  let newDiv = document.createElement("div");
   newDiv.setAttribute("id", name + "unlock-div");
   newDiv.setAttribute("class", "unlock-ore-div-css");
   newDiv.innerHTML = newinnerHTML;
@@ -25,12 +26,16 @@ export function createUnlockOreDiv(name, cost) {
   let unlockText = getElement(name + "-unlock-text");
   unlockText.innerHTML = "Unlock " + name + " for " + cost;
   let unlockButton = getElement("unlock-" + name + "-button");
-  console.log(unlockButton);
+  
   unlockButton.addEventListener("click", () => {
     if (game.coins.totalCoins >= cost) {
-      initOre(name, "Silver", 10);
+      initOre(game, game.oreProgression[0].name , game.oreProgression[0].color, game.oreProgression[0].multiplier);
+      game.oreProgression.shift();
       newConatiner.remove();
-      createUnlockOreDiv("gold", 100);
+      if (game.oreProgression.length > 0) {
+         createUnlockOreDiv(game, "gold", 100);
+      }
+     
     }
   });
 

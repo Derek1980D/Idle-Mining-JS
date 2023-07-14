@@ -21,7 +21,7 @@ export function crateOreDiv(name, color) {
   mainDiv.appendChild(newConatiner);
   // create a new div to contain the new html
   let newDiv = document.createElement("div");
-  console.log(newDiv);
+  
   newDiv.setAttribute("id", name + "-div");
   newDiv.setAttribute("class", "ore-div-css");
   newDiv.innerHTML = newinnerHTML;
@@ -38,6 +38,4 @@ export function crateOreDiv(name, color) {
   // !!!!!!!! if game.progression has some elements left then
   //          create unlock div
   // !!!!!! --- remove unlock div crateion from other part of code
-};
-
-
+}
