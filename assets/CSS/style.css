@@ -137,34 +137,6 @@ body {
     }
 }
 
-.play-area-div {
-    height: 100%;
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-row-end: 3;
-    grid-column-end: 2;
-    background-color: #3a3a3a;
-    position: relative;
-}
-
-.ore-play-area {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-    background-color: #D5EEC7;
-    position: absolute;
-}
-.smelting-play-area {
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-    background-color: #8fb976;
-    position: absolute;
-    display: none;
-}
-
 #stats-div {
     background-color: #7D7895;
     grid-row-start: 1;
@@ -184,6 +156,25 @@ body {
 #coins-div {
     color: darkgoldenrod;
     width: 100%;
+}
+.play-area-div {
+    height: 100%;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 2;
+    background-color: #3a3a3a;
+    position: relative;
+}
+
+.ore-play-area,
+.smelting-play-area{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    background-color: #D5EEC7;
+    position: absolute;
 }
 
 /* Ore div common styling
@@ -227,4 +218,46 @@ body {
     list-style: none;
     display: flex;
     position: relative;
+}
+
+/* smelting */
+#smelt-ore-div-container-css {
+
+        min-width: 50%;
+        min-height: 50%;
+        max-height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    
+}
+#smelt-ore-div-css {
+        min-width: 50%;
+        aspect-ratio: 2/1;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: rgb(52, 62, 62);
+        padding: 3px;
+        color: beige;
+        justify-content: center;
+}
+
+#smelt-bar-div {
+    border: 2px solid blue;
+    min-width: 50%;
+        aspect-ratio: 2/1;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: rgb(52, 62, 62);
+        padding: 3px;
+        color: beige;
+        justify-content: center;
+}
+#smelt-bar-progress-div{
+    background-color: aqua;
+    border: 2px solid blue;
+    width: 50%;
 }

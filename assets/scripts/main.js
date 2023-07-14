@@ -41,6 +41,8 @@ window.onload = () => {
       mineMenu.style.backgroundColor = "transparent";
       smeltMenu.style.backgroundColor = "green";
     });
+    let smeltBarProgress = getElement("smelt-bar-progress-div")
+    smeltBarProgress.style.width = "20%"
   }
 };
 

@@ -1,0 +1,1 @@
+// !!!!! --------------- >>>>>>>>>>>>> a summary of all coins, ores, bars, etc added to stats panel
