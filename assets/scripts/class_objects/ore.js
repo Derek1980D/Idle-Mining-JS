@@ -14,7 +14,10 @@ export function initOre(game, oreName, color, _multiplier) {
     minerCost: 10 * _multiplier,
     perMiner: 1,
     value: 1 * _multiplier,
+    smeltTime: 10,
+    amountForSmelt: 5
   };
+  
   ore["divs"] = {
     divText: getElement(oreName + "-text-div"),
     minerText: getElement(oreName + "-miner-text-div"),

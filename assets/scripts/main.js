@@ -77,16 +77,11 @@ let gameLoop = (timestamp) => {
     }
   }
 
- for (const i in game.ores) {
+ for (const i in game.smelteries) {
    game.smelteries[i].update(timestamp - game.lastTimeStamp);
  }
-    // loop through game ores to update
+    
    
-  
-  
-  
-   
- 
   game.lastTimeStamp = timestamp;
   window.requestAnimationFrame(gameLoop);
 };
