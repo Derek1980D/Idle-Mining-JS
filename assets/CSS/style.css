@@ -206,3 +206,9 @@ body {
     padding: 3px;
     background-color: rgb(52, 62, 62);
 }
+
+.game-menu{
+    list-style: none;
+    display: flex;
+    position: relative;
+}

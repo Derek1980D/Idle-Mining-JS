@@ -4,6 +4,7 @@ import { createUnlockOreDiv } from "../utils/createUnlockDiv.js";
 import { getOreProgression } from "../utils/oreProgression.js";
 export function newGame() {
   let game = {};
+  game["active-area"] = "mine"
   // some game variables for timing intervals
   game["lastTimeStamp"] = 0;
   game["sinceTimeStamp"] = 0;
@@ -18,7 +19,11 @@ export function newGame() {
   initOre(game, game.oreProgression[0].name, game.oreProgression[0].color, game.oreProgression[0].multiplier);
   // remove the fist item from ore progresssion
   game.oreProgression.shift();
-  createUnlockOreDiv(game, "silver", 10);
+
+  if (game.oreProgression.length > 0) {
+    createUnlockOreDiv(game,  game.oreProgression[0].name, 10);
+  }
+  
  
     return game;
 }

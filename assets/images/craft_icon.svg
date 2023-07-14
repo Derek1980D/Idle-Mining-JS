@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="26.458332mm"
+   height="26.458334mm"
+   viewBox="0 0 26.458332 26.458334"
+   version="1.1"
+   id="svg5"
+   xml:space="preserve"
+   inkscape:export-filename="smelt_icon.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" /><defs
+     id="defs2" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"><g
+       id="g438"
+       transform="matrix(0.26458333,0,0,0.26458333,37.581745,22.211963)"><path
+         d="m -137.04124,-28.950727 v -25 l -5,-10 5,-20 h 20 l 5,20 -5,10 v 25 c 2.759,0 5,2.236 5,5 v 35 c 0,2.764 -2.241,5 -5,5 h -20 c -2.764,0 -5,-2.236 -5,-5 v -35 c 0,-2.764 2.236,-5 5,-5 z m 16.094,-50 h -12.188 l -3.608,14.419 4.702,9.399 v 26.182 h 10 v -26.182 l 4.702,-9.399 z m -16.094,90 h 20 v -35 h -20 z m 15,-10.0000004 c 0,-2.764 -2.241,-5 -5,-5 -2.764,0 -5,2.236 -5,5 0,2.764 2.236,5 5,5 2.759,0 5,-2.236 5,-5 z m 34.999997,-79.9999996 h 25 c 0,-2.764 2.237,-5 5,-5 h 9.999998 c 2.764,0 5,2.236 5,5 v 20 c 0,2.764 -2.236,5 -5,5 h -9.999998 c -2.764,0 -5,-2.236 -5,-5 v 30 c 2.764,0 5,2.236 5,5 v 35 c 0,2.764 -2.236,5 -5,5 h -20 c -2.764,0 -5,-2.236 -5,-5 v -35 c 0,-2.764 2.237,-5 5,-5 v -30 c 0,0 0,0 -5,0 -5,0 -5,10 -5,10 h -9.999997 c 0,0 0,0 0,-15 0,-15 14.999997,-15 14.999997,-15 z m 30,20 h 9.999998 v -20 h -9.999998 z m -25,70 h 20 v -35 h -20 z m 15,-40 v -30 h -10 v 30 z m -15,-35 h 20 v -10 h -20 z m -15,10 c 1.045,-5.303 4.37,-10 10,-10 v -10 c -1.669,0 -10,0.483 -10,10 z m 30,54.9999996 c 0,-2.764 -2.241,-5 -5,-5 -2.764,0 -5,2.236 -5,5 0,2.764 2.236,5 5,5 2.759,0 5,-2.236 5,-5 z"
+         id="path436" /></g></g><style
+     type="text/css"
+     id="style406">
+	.st0{fill:none;}
+</style></svg>

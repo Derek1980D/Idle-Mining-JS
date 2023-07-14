@@ -24,6 +24,7 @@ export function createUnlockOreDiv(game, name, cost) {
   newConatiner.appendChild(newDiv);
 
   let unlockText = getElement(name + "-unlock-text");
+  // !!!!--------->> change to colors of ore to be unlocked
   unlockText.innerHTML = "Unlock " + name + " for " + cost;
   let unlockButton = getElement("unlock-" + name + "-button");
   
@@ -39,5 +40,4 @@ export function createUnlockOreDiv(game, name, cost) {
     }
   });
 
-  //temporary, remove once progression implemented
 }

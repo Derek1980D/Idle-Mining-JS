@@ -63,3 +63,7 @@ Lots of help here https://www.w3schools.com/
   - pickaxe Created by Mr. Minuvi https://thenounproject.com/minuvi/
   - ingot created by Tolicon https://thenounproject.com/tolicon/
   - upgrade icon crated by sbts https://thenounproject.com/sbts2018/
+  - pickaxe icon created by Omeneko https://thenounproject.com/omeneko/
+  - smelting icon created by Noura Mbarki https://thenounproject.com/mbarki_noura/
+  - hammer and screwdriver icon created by B Farias https://thenounproject.com/bfarias/
+  - settings icon created by Mada Creative https://thenounproject.com/madadesign/

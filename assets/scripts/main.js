@@ -1,7 +1,8 @@
 
 import { newGame } from "./class_objects/game.js"
+import { getElement } from "./utils/getEle.js";
 
-let game = newGame();
+let game;  
 
 // add some code for ore progression, the types and values, and update functions to only
 // progress if another is availible, this leaves options to easily add new ores in later
@@ -12,6 +13,7 @@ let game = newGame();
 
 
 window.onload = () => {
+  
   // check if at homepage, load button functions
   if (window.location.href.includes("index.html")) {
     let newGameButton = document.getElementById("new-game-button");
@@ -19,14 +21,20 @@ window.onload = () => {
     let loadGameButton = document.getElementById("load-game-button");
     loadGameButton.addEventListener("click", loadSave);
   }
+  
   if (window.location.href.includes("game.html")) {
    
-     for (const i in game.ores) {
-       game.ores[i].update();
-     }
-    // enter the main game loop
+    game = newGame();
     window.requestAnimationFrame(gameLoop);
+   let activeArea = game["active-area"];
+   if ((activeArea = "mine")) {
+     let temp = getElement("game-menu-mine");
+     temp.style.backgroundColor = "green";
+     
+   }
+  
   }
+  
 };
 
 // startgame usuaing load save or not then onload to reset of page
@@ -52,14 +60,13 @@ let gameLoop = (timestamp) => {
   
   // Update every second
   if (game.sinceTimeStamp / 1000 >= 1) {
-    game.coins.update();
+   
     game.sinceTimeStamp = 0;
     // loop through game ores to update
     for (const i in game.ores) {
       game.ores[i].update();
     }
   }
-
   game.lastTimeStamp = timestamp;
   window.requestAnimationFrame(gameLoop);
 };
