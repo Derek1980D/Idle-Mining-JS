@@ -2,6 +2,7 @@ import { initCoins } from "./coins.js";
 import { initOre } from "./ore.js";
 import { createUnlockOreDiv } from "../utils/createUnlockDiv.js";
 import { getOreProgression } from "../utils/oreProgression.js";
+import { initSmeltery } from "./smeltery.js";
 export function newGame() {
   let game = {};
 
@@ -11,7 +12,7 @@ export function newGame() {
   // array to store game ores
   game["ores"] = [];
   game["oreProgression"] = getOreProgression();
-  
+  game["smelteries"] = [];
   initCoins(game);
 
   // init the first item in ore progression then remove it from the array
@@ -20,6 +21,9 @@ export function newGame() {
   // remove the fist item from ore progresssion
   game.oreProgression.shift();
 
+
+  initSmeltery(game, "copperSmeltery", "orange", 10, 10)
+  
   if (game.oreProgression.length > 0) {
     createUnlockOreDiv(game,  game.oreProgression[0].name, 10);
   }

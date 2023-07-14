@@ -2,7 +2,9 @@ import { newGame } from "./class_objects/game.js";
 import { getElement } from "./utils/getEle.js";
 
 let game;
-
+// !!!!!!!--------------->>>>>>>>. TEMPORARY
+let smeltBarProgress;
+///////////////////////////////
 // add some code for ore progression, the types and values, and update functions to only
 // progress if another is availible, this leaves options to easily add new ores in later
 // updates, same can be done for crafting which I will add next
@@ -41,7 +43,7 @@ window.onload = () => {
       mineMenu.style.backgroundColor = "transparent";
       smeltMenu.style.backgroundColor = "green";
     });
-    let smeltBarProgress = getElement("smelt-bar-progress-div")
+     smeltBarProgress = getElement("smelt-bar-progress-div")
     smeltBarProgress.style.width = "20%"
   }
 };
@@ -75,6 +77,19 @@ let gameLoop = (timestamp) => {
       game.ores[i].update();
     }
   }
+
+  if (game.sinceTimeStamp / 1 >= 1) {
+    game.sinceTimeStamp = 0;
+    // loop through game ores to update
+    game.smelteries[0].smeltProgress += game.smelteries[0].smeltTime/100;
+    if (game.smelteries[0].smeltProgress >= 100) {
+       game.smelteries[0].smeltProgress=0;
+    }
+  }
+
+  
+    smeltBarProgress.style.width = game.smelteries[0].smeltProgress+"%";
+  console.log(game.smelteries[0]);
   game.lastTimeStamp = timestamp;
   window.requestAnimationFrame(gameLoop);
 };
