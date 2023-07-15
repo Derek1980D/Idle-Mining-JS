@@ -171,6 +171,13 @@ body {
     height: 100%;
     display: none;
 }
+
+#ore-play-area-contents-div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
 /* menu area */
 .game-menu-div {
     border: 2px solid white;

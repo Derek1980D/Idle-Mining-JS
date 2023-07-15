@@ -17,7 +17,7 @@ export function createOreDiv(name, color) {
   let newConatiner = document.createElement("div");
   newConatiner.setAttribute("id", name + "-div");
   newConatiner.setAttribute("class", "ore-div-container-css");
-  let mainDiv = getElement("ore-play-area-div");
+  let mainDiv = getElement("ore-play-area-contents-div");
   mainDiv.appendChild(newConatiner);
   // create a new div to contain the new html
   let newDiv = document.createElement("div");

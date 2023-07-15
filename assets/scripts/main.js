@@ -39,6 +39,8 @@ window.onload = () => {
      getElement("craft-play-area-div").style.display = "none";
        mineMenu.style.backgroundColor = "green";
       smeltMenu.style.backgroundColor = "transparent";
+       craftMenu.style.backgroundColor = "transparent";
+       settingsMenu.style.backgroundColor = "transparent";
     });
 
     
@@ -49,6 +51,8 @@ window.onload = () => {
        getElement("craft-play-area-div").style.display = "none";
       mineMenu.style.backgroundColor = "transparent";
       smeltMenu.style.backgroundColor = "green";
+      craftMenu.style.backgroundColor = "transparent";
+      settingsMenu.style.backgroundColor = "transparent";
     });
     craftMenu.addEventListener("click", () => {
       getElement("craft-play-area-div").style.display = "flex";
@@ -56,7 +60,9 @@ window.onload = () => {
       getElement("smelt-play-area-div").style.display = "none";
       getElement("settings-play-area-div").style.display = "none";
       mineMenu.style.backgroundColor = "transparent";
-      smeltMenu.style.backgroundColor = "green";
+      smeltMenu.style.backgroundColor = "transparent";
+      craftMenu.style.backgroundColor = "green";
+      settingsMenu.style.backgroundColor = "transparent";
     });
      settingsMenu.addEventListener("click", () => {
       getElement("settings-play-area-div").style.display = "flex";
@@ -65,7 +71,9 @@ window.onload = () => {
        getElement("smelt-play-area-div").style.display = "none";
        
        mineMenu.style.backgroundColor = "transparent";
-       smeltMenu.style.backgroundColor = "green";
+       smeltMenu.style.backgroundColor = "transparent";
+       craftMenu.style.backgroundColor = "transparent";
+       settingsMenu.style.backgroundColor = "green";
      });
     
   }
