@@ -33,6 +33,8 @@ export function createOreDiv(name, color) {
   minerDiv.style.border = "1px solid " + color;
   let sellDiv = getElement("sell-" + name + "-div");
   sellDiv.style.border = "1px solid " + color;
+  sellDiv.style.borderBottomLeftRadius = "15px";
+  sellDiv.style.borderBottomRightRadius = "15px";
   sellDiv.style.marginTop = "3px";
 
 }

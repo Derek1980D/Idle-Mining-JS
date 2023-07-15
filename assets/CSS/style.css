@@ -108,7 +108,9 @@ body {
 
     height: 100%;
     width: 100%;
-
+    display:flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(#8663cb, #5a35a5, #8663cb);
 }
 
@@ -116,20 +118,20 @@ body {
 .play-area-container,
 .game-menu-container {
 
-    display: inline-block;
-    vertical-align: top;
-    height: 100%;
+    
+    
+   height: 100%;
 
 }
 
 .stats-container {
-    width: 30%;
+    width: 25%;
 
 }
 
 .play-area-container {
 
-    width: 50%;
+    width: 55%;
 
 }
 
@@ -139,15 +141,18 @@ body {
 
 }
 /* stats area */
-.stats-div {
+#stats-div {
     border: 2px solid white;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
 }
+
+
 
 #coins-div {
     color: darkgoldenrod;
@@ -191,12 +196,6 @@ body {
     align-items: center;
 }
 
-
-
-
-
-
-
 /* Ore div common styling
  specifc to ore will be set up in javascript */
 .ore-div-container-css,
@@ -212,15 +211,16 @@ body {
 .ore-div-css,
 .smelt-div-css {
 
-    min-width: 50%;
-    aspect-ratio: 2/1;
+    width: 60%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: rgb(52, 62, 62);
+    background-color: rgba(76, 77, 114, 0.329);
     padding: 3px;
     color: beige;
     justify-content: center;
+    border-radius: 20px;
 }
 
 .unlock-ore-div-css {
@@ -233,7 +233,8 @@ body {
     justify-content: center;
     flex-direction: column;
     padding: 3px;
-    background-color: rgb(52, 62, 62);
+    background-color: rgb(71, 124, 124);
+   
 }
 
 
@@ -319,12 +320,12 @@ body {
 }
 
 
-@media only screen and (max-width:400px) {
+@media only screen and (max-width:420px) {
 
     #game-main-div {
         height: 100%;
         width: 100%;
-
+        flex-direction: column;
     }
 
     .stats-container,
@@ -358,10 +359,7 @@ body {
         width: 100%;
     }
 
-    #stats-div {
-
-        width: 100%;
-    }
+    
 
     .game-menu {
         list-style: none;

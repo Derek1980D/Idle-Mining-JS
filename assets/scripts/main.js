@@ -1,6 +1,7 @@
 import { newGame } from "./class_objects/game.js";
 import { getElement } from "./utils/getEle.js";
 import { createSmelteryUnlockDiv } from "./utils/createSmelteryUnockDiv.js";
+import { updateStats } from "./class_objects/stats.js";
 let game;
 
 // !!!!!!!--------------->>>>>>>>. TEMPORARY
@@ -24,6 +25,8 @@ window.onload = () => {
 
   if (window.location.href.includes("game.html")) {
     game = newGame();
+    
+    
     createSmelteryUnlockDiv(game, "yellow", 20);
     window.requestAnimationFrame(gameLoop);
     // !!!!--------- >>>>>>>>  loop to create tehse for less code?
@@ -109,13 +112,15 @@ let gameLoop = (timestamp) => {
     for (const i in game.ores) {
       game.ores[i].update();
     }
+    // move this to game.update?
+    updateStats(game);
   }
 
  for (const i in game.smelteries) {
    game.smelteries[i].update(timestamp - game.lastTimeStamp);
  }
     
- game.coins.update();  
+ 
   game.lastTimeStamp = timestamp;
   window.requestAnimationFrame(gameLoop);
 };

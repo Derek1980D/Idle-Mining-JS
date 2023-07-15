@@ -9,13 +9,8 @@ export function initCoins(game) {
   game["coins"] = {}
   
   game.coins["color"] = coinsColor;
-  game.coins["totalCoins"] = 1000;
-  game.coins["totalCoinsDiv"] = getElement("coins-div");
-  game.coins.totalCoinsDiv.style.color = coinsColor;
-  game.coins["update"] = () => {
-  game.coins.totalCoinsDiv.innerHTML = game.coins.totalCoins;
-  
-  
-  };
+  game.coins["totalCoins"] = 0;
+ 
+ 
   
 }

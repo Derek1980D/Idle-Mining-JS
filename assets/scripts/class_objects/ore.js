@@ -3,8 +3,13 @@ import { createOreDiv } from "../utils/createOreDiv.js";
 
 export function initOre(game, oreName, color, _multiplier, smeltTime) {
   createOreDiv(oreName, color);
-
-  // create an ore object
+  let oreStats = document.createElement("div");
+  oreStats.setAttribute("id", oreName + "-stats")
+  
+  let statsPanel = getElement("stats-div");
+ 
+  statsPanel.appendChild(oreStats)
+ 
   let ore = {} ;
   ore["name"] = oreName;
   ore["multiplier"] = _multiplier;
@@ -57,5 +62,6 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
     ore.divs.sellText.innerHTML = `<span style='color:${color}'>${ore.name}</span> Value:  <span style='color:${game.coins.color}'> ${ore.stats.value}</span>     `;
   };
   game.ores.push(ore);
+  
   //return(ore);
 }

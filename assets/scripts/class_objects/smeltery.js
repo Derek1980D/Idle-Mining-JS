@@ -3,7 +3,12 @@ import { createSmelteryDiv } from "../utils/createSmelteryDiv.js";
 
 export function initSmeltery(game, ore) {
   createSmelteryDiv(ore.name, ore.color);
+  let smelteryStats = document.createElement("div");
+  smelteryStats.setAttribute("id", ore.name + "bar-stats");
 
+  let statsPanel = getElement("stats-div");
+
+  statsPanel.appendChild(smelteryStats);
   // create a smeltery object
   let smeltery = {};
   smeltery["name"] = ore.name;
@@ -16,6 +21,7 @@ export function initSmeltery(game, ore) {
     isActive: true,
     smeltProgress: 0,
     smeltProgressPercent: 0,
+    totalBars:0
   };
   smeltery["color"] = ore.color;
 
@@ -52,6 +58,7 @@ export function initSmeltery(game, ore) {
         smeltery.stats.smeltProgressPercent + "%";
      
       if (smeltery.stats.smeltProgressPercent >= 100) {
+        smeltery.stats.totalBars+=1;
         smeltery.stats.isSmelting = false;
         smeltery.stats.smeltProgress = 0;
         smeltery.divs.progessBar.style.width =  "0%";
