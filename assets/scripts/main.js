@@ -81,7 +81,7 @@ let gameLoop = (timestamp) => {
    game.smelteries[i].update(timestamp - game.lastTimeStamp);
  }
     
-   
+ game.coins.update();  
   game.lastTimeStamp = timestamp;
   window.requestAnimationFrame(gameLoop);
 };

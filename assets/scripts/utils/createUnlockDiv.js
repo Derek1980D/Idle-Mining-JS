@@ -13,7 +13,7 @@ export function createUnlockOreDiv(game, name, cost) {
   let newConatiner = document.createElement("div");
   newConatiner.setAttribute("id", name + "-div");
   newConatiner.setAttribute("class", "ore-div-container-css");
-  let mainDiv = getElement("ore-play-area-div");
+  let mainDiv = getElement("play-area-div");
   mainDiv.appendChild(newConatiner);
 
   let newDiv = document.createElement("div");
