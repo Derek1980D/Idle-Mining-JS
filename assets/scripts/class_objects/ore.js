@@ -1,7 +1,7 @@
 import { getElement } from "../utils/getEle.js";
 import { createOreDiv } from "../utils/createOreDiv.js";
 
-export function initOre(game, oreName, color, _multiplier) {
+export function initOre(game, oreName, color, _multiplier, smeltTime) {
   createOreDiv(oreName, color);
 
   // create an ore object
@@ -14,9 +14,11 @@ export function initOre(game, oreName, color, _multiplier) {
     minerCost: 10 * _multiplier,
     perMiner: 1,
     value: 1 * _multiplier,
-    smeltTime: 10,
+    smeltTime: smeltTime,
     amountForSmelt: 5
   };
+
+  ore["color"] = color;
   
   ore["divs"] = {
     divText: getElement(oreName + "-text-div"),

@@ -1,7 +1,8 @@
 import { newGame } from "./class_objects/game.js";
 import { getElement } from "./utils/getEle.js";
-
+import { createSmelteryUnlockDiv } from "./utils/createSmelteryUnockDiv.js";
 let game;
+
 // !!!!!!!--------------->>>>>>>>. TEMPORARY
 
 ///////////////////////////////
@@ -23,6 +24,7 @@ window.onload = () => {
 
   if (window.location.href.includes("game.html")) {
     game = newGame();
+    createSmelteryUnlockDiv(game, "yellow", 20);
     window.requestAnimationFrame(gameLoop);
     // !!!!--------- >>>>>>>>  loop to create tehse for less code?
     let mineMenu = getElement("game-menu-mine");

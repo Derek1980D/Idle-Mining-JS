@@ -1,44 +1,62 @@
 import { getElement } from "../utils/getEle.js";
-/**
- *
- * @param {object} game the game requesting this function
- * @param {string} oreType oretype to smelt
- * @param {string} color color
- * @param {integer} _multiplier multiplier
- * @param {integer} smeltTime time to smelt
- */
-export function initSmeltery(game, oreType) {
-  //!!!!!!!---------create smeltery div
-  // createOreDiv(oreType, color);
+import { createSmelteryDiv } from "../utils/createSmelteryDiv.js";
+
+export function initSmeltery(game, ore) {
+  createSmelteryDiv(ore.name, ore.color);
+
+  // create a smeltery object
   let smeltery = {};
-  smeltery["oreType"] = oreType;
-  smeltery["smeltTime"] = oreType.stats.smeltTime;
-  smeltery["smeltProgress"] = 0;
-  smeltery["isSmelting"] = false;
-  smeltery["isActive"] = true;
-  smeltery["update"] = (gameSinceTimeStamp) => {
-    let smeltBarProgress = getElement("smelt-bar-progress-div");
-   
-    if(smeltery.isActive === true){
-      
-    if (oreType.stats.total >= oreType.stats.amountForSmelt) {
-         oreType.stats.total -= oreType.stats.amountForSmelt;
-        smeltery.isSmelting = true;
-    }
-    }
-    
-    if (smeltery.isSmelting == true) {
-    smeltery.smeltProgress+=gameSinceTimeStamp/1000;
-    let progressPercent = (smeltery.smeltProgress/smeltery.smeltTime)*100
-    smeltBarProgress.style.width = progressPercent+"0%";
-        if (progressPercent>= 100) {
-            smeltery.smeltProgress = 0;
-             smeltBarProgress.style.width = "0%";
-            smeltery.isSmelting = false;
+  smeltery["name"] = ore.name;
+  smeltery["stats"] = {
+    // can multiply these later with upgrades.
+    smeltTime: ore.stats.smeltTime,
+    smeltCost: ore.stats.amountForSmelt,
+    value: 10 * ore.stats.value,
+    isSmelting: false,
+    isActive: true,
+    smeltProgress: 0,
+    smeltProgressPercent: 0,
+  };
+  smeltery["color"] = ore.color;
+
+  smeltery["divs"] = {
+    divText: getElement("smelt-" + ore.name + "-text"),
+    progessBar: getElement("smelt-" + ore.name + "-progress"),
+  };
+  smeltery["update"] = (interval) => {
+    smeltery.divs.divText.innerHTML =
+      "Smelt " +
+      smeltery.stats.smeltCost +
+      " " +
+      ore.name +
+      " ore into 1 copper bar";
+    if (smeltery.stats.isActive === true) {
+      if (smeltery.stats.isSmelting === false) {
+        if (ore.stats.total >= smeltery.stats.smeltCost) {
+          smeltery.stats.isSmelting = true;
+          ore.stats.total -= smeltery.stats.smeltCost;
         }
-    
+      }
     }
-  
-}
+
+    if (smeltery.stats.isSmelting === true) {
+
+      
+      smeltery.stats.smeltProgress += interval / 1000;
+
+      smeltery.stats.smeltProgressPercent =
+        (smeltery.stats.smeltProgress / smeltery.stats.smeltTime) * 100;
+
+     
+      smeltery.divs.progessBar.style.width =
+        smeltery.stats.smeltProgressPercent + "%";
+     
+      if (smeltery.stats.smeltProgressPercent >= 100) {
+        smeltery.stats.isSmelting = false;
+        smeltery.stats.smeltProgress = 0;
+        smeltery.divs.progessBar.style.width =  "0%";
+      }
+    }
+  };
   game.smelteries.push(smeltery);
 }
