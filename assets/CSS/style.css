@@ -138,8 +138,8 @@ body {
     width: 19%;
 
 }
-
-#stats-div {
+/* stats area */
+.stats-div {
     border: 2px solid white;
     width: 100%;
     height: 100%;
@@ -147,38 +147,44 @@ body {
     justify-content: center;
     align-items: center;
 
-}
-
-#play-area-div {
-    border: 2px solid white;
-    width: 100%;
-    height: 100%;
-
-}
-
-#game-menu-div {
-    border: 2px solid white;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #coins-div {
     color: darkgoldenrod;
     width: 50%;
 }
-
-
-
-.ore-play-area,
-.smelting-play-area {
-
-    border: 2px solid rgba(255, 255, 255, 0.414);
-    background-color: linear#6c5796;
-    background: linear-gradient(#9a64e662, #9198e554);
+/* play area */
+.play-area-div {
+    border: 2px solid white;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
+
+#ore-play-area-div,
+#smelt-play-area-div,
+#craft-play-area-div,
+#settings-play-area-div {
+    border: 2px solid red;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/* menu area */
+.game-menu-div {
+    border: 2px solid white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
 
 /* Ore div common styling
  specifc to ore will be set up in javascript */
@@ -282,7 +288,7 @@ body {
     align-items: center;
     justify-content: center;
     border: 2px solid white;
-    background: radial-gradient(#e6646400, #d4d8fa4d);
+    background: radial-gradient(#e6646400, #d4d8fa7c);
     border-radius: 10px;
     margin: 2px;
     padding: 5px;

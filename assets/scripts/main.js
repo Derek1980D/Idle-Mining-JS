@@ -30,16 +30,16 @@ window.onload = () => {
     // !!! --------implement svg stroke style changes possibly
     mineMenu.style.backgroundColor = "green";
     mineMenu.addEventListener("click", () => {
-      getElement("smelting-play-area-div").style.display = "none";
-      getElement("ore-play-area-div").style.display = "flex";
+      //getElement("smelting-play-area-div").style.display = "none";
+     // getElement("ore-play-area-div").style.display = "flex";
        mineMenu.style.backgroundColor = "green";
       smeltMenu.style.backgroundColor = "transparent";
     });
 
     
     smeltMenu.addEventListener("click", () => {
-      getElement("smelting-play-area-div").style.display = "flex";
-      getElement("ore-play-area-div").style.display = "none";
+     // getElement("smelting-play-area-div").style.display = "flex";
+     // getElement("ore-play-area-div").style.display = "none";
       mineMenu.style.backgroundColor = "transparent";
       smeltMenu.style.backgroundColor = "green";
     });
