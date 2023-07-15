@@ -22,7 +22,7 @@ export function newGame() {
   game.oreProgression.shift();
 
 
-  initSmeltery(game, game.ores[0])
+  //initSmeltery(game, game.ores[0])
   
   if (game.oreProgression.length > 0) {
     createUnlockOreDiv(game,  game.oreProgression[0].name, 10);
