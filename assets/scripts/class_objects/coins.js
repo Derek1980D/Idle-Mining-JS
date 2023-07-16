@@ -1,4 +1,4 @@
-import { getElement } from "../utils/getEle.js";
+
 /**
  *
  * @param {object} game the game to add objects to

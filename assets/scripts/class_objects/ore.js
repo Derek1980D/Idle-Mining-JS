@@ -2,13 +2,20 @@ import { getElement } from "../utils/getEle.js";
 import { createOreDiv } from "../utils/createOreDiv.js";
 
 export function initOre(game, oreName, color, _multiplier, smeltTime) {
-  createOreDiv(oreName, color);
+  
+  createOreDiv(oreName, color); 
+  // add new ore to stats panel
   let oreStats = document.createElement("div");
   oreStats.setAttribute("id", oreName + "-stats")
-  
+  oreStats.style.border = "2px solid "+ color;
+  oreStats.style.background = "radial-gradient(#e6646400, #d4d8fa7c)";
+  // 
   let statsPanel = getElement("stats-div");
- 
   statsPanel.appendChild(oreStats)
+  let oreTotal = document.createElement("div");
+  oreTotal.setAttribute("id", oreName + "-ore-total")
+  oreStats.appendChild(oreTotal);
+  oreTotal.innerHTML = "hi";
  
   let ore = {} ;
   ore["name"] = oreName;

@@ -125,14 +125,14 @@ body {
 }
 
 .stats-container {
-    width: 25%;
+    width: 20%;
 
 }
 
 .play-area-container {
 
     width: 55%;
-
+flex-grow: 4
 }
 
 .game-menu-container {
@@ -181,7 +181,7 @@ body {
 #smelt-play-area-contents-div {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    min-width: 100%;
 
 }
 
@@ -200,6 +200,7 @@ body {
  specifc to ore will be set up in javascript */
 .ore-div-container-css,
 .smelt-div-container-css {
+    
     min-width: 50%;
     min-height: 50%;
     max-height: 50%;
@@ -210,7 +211,7 @@ body {
 
 .ore-div-css,
 .smelt-div-css {
-
+aspect-ratio: 2/1;
     width: 60%;
     height: 50%;
     display: flex;
@@ -273,11 +274,6 @@ body {
 
 
 
-
-
-
-
-
 /* Menu */
 .game-menu {
     list-style: none;
@@ -321,7 +317,7 @@ body {
 
 
 @media only screen and (max-width:420px) {
-
+    
     #game-main-div {
         height: 100%;
         width: 100%;
@@ -332,6 +328,7 @@ body {
     .play-area-container,
     .game-menu-container {
         display: block;
+        font-size: 6px;
     }
 
     .stats-container {

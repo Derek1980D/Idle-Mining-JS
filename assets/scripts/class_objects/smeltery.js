@@ -4,9 +4,9 @@ import { createSmelteryDiv } from "../utils/createSmelteryDiv.js";
 export function initSmeltery(game, ore) {
   createSmelteryDiv(ore.name, ore.color);
   let smelteryStats = document.createElement("div");
-  smelteryStats.setAttribute("id", ore.name + "bar-stats");
+  smelteryStats.setAttribute("id", ore.name + "-bar-stats");
 
-  let statsPanel = getElement("stats-div");
+  let statsPanel = getElement(ore.name+"-stats");
 
   statsPanel.appendChild(smelteryStats);
   // create a smeltery object
