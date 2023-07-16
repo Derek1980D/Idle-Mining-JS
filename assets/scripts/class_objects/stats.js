@@ -8,6 +8,7 @@ export function updateStats(game) {
      coinsDiv.style.border = "2px solid yellow";
      coinsDiv.style.background = "radial-gradient(#e6646400, #d4d8fa7c)";
      coinsDiv.style.padding = "2px";
+     coinsDiv.style.width = "90%";
     for (const i in game.ores) {
         let statDiv = getElement(game.ores[i].name + "-ore-total")
        statDiv.innerHTML =

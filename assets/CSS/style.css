@@ -108,7 +108,7 @@ body {
 
     height: 100%;
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(#8663cb, #5a35a5, #8663cb);
@@ -118,9 +118,9 @@ body {
 .play-area-container,
 .game-menu-container {
 
-    
-    
-   height: 100%;
+
+
+    height: 100%;
 
 }
 
@@ -132,7 +132,7 @@ body {
 .play-area-container {
 
     width: 55%;
-flex-grow: 4
+    flex-grow: 4
 }
 
 .game-menu-container {
@@ -140,6 +140,7 @@ flex-grow: 4
     width: 19%;
 
 }
+
 /* stats area */
 #stats-div {
     border: 2px solid white;
@@ -158,6 +159,7 @@ flex-grow: 4
     color: darkgoldenrod;
     width: 50%;
 }
+
 /* play area */
 .play-area-div {
     border: 2px solid white;
@@ -170,7 +172,7 @@ flex-grow: 4
 #smelt-play-area-div,
 #craft-play-area-div,
 #settings-play-area-div {
-   
+
     position: absolute;
     width: 100%;
     height: 100%;
@@ -200,7 +202,7 @@ flex-grow: 4
  specifc to ore will be set up in javascript */
 .ore-div-container-css,
 .smelt-div-container-css {
-    
+
     min-width: 50%;
     min-height: 50%;
     max-height: 50%;
@@ -211,9 +213,9 @@ flex-grow: 4
 
 .ore-div-css,
 .smelt-div-css {
-aspect-ratio: 2/1;
-    width: 60%;
-    height: 50%;
+
+    width: 80%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -221,7 +223,48 @@ aspect-ratio: 2/1;
     padding: 3px;
     color: beige;
     justify-content: center;
+
     border-radius: 20px;
+    position: relative;
+}
+
+.ore-text-css {
+    position: absolute;
+    background: radial-gradient(#b79d9d00, #b1b7f1bc);
+    padding-top: 5%;
+    
+    height: 30%;
+    width: 97%;
+    left: 1.5%;
+    top: 2%;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+
+}
+
+.ore-miner-css {
+    position: absolute;
+    background: radial-gradient(#b79d9d00, #b1b7f1bc);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    height: 30%;
+    width: 97%;
+    left: 1.5%;
+}
+
+.sell-ore-css {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    bottom: 2%;
+    width: 97%;
+    left: 1.5%;
+    height: 30%;
+    background: radial-gradient(#b79d9d00, #b1b7f1bc);
 }
 
 .unlock-ore-div-css {
@@ -235,7 +278,7 @@ aspect-ratio: 2/1;
     flex-direction: column;
     padding: 3px;
     background-color: rgb(71, 124, 124);
-   
+
 }
 
 
@@ -247,18 +290,20 @@ aspect-ratio: 2/1;
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
 }
 
 .smelt-bar {
     height: 40%;
     background-color: beige;
 }
+
 .smelt-bar-progress {
     height: 50%;
     width: 50%;
     background-color: #5a35a5;
 }
+
 .unlock-smeltery-div-css {
     border: 2px solid blue;
     border-radius: 20px;
@@ -293,7 +338,7 @@ aspect-ratio: 2/1;
     align-items: center;
     justify-content: center;
     border: 2px solid white;
-    background: radial-gradient(#e6646400, #d4d8fa7c);
+    background: radial-gradient(#e6646400, #d4fae428);
     border-radius: 10px;
     margin: 2px;
     padding: 5px;
@@ -317,7 +362,7 @@ aspect-ratio: 2/1;
 
 
 @media only screen and (max-width:420px) {
-    
+
     #game-main-div {
         height: 100%;
         width: 100%;
@@ -328,7 +373,7 @@ aspect-ratio: 2/1;
     .play-area-container,
     .game-menu-container {
         display: block;
-        font-size: 6px;
+        font-size: 12px;
     }
 
     .stats-container {
@@ -356,7 +401,7 @@ aspect-ratio: 2/1;
         width: 100%;
     }
 
-    
+
 
     .game-menu {
         list-style: none;
