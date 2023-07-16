@@ -9,6 +9,8 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
   oreStats.setAttribute("id", oreName + "-stats")
   oreStats.style.border = "2px solid "+ color;
   oreStats.style.background = "radial-gradient(#e6646400, #d4d8fa7c)";
+  oreStats.style.padding = "2px"
+  oreStats.style.marginTop = "5px";
   // 
   let statsPanel = getElement("stats-div");
   statsPanel.appendChild(oreStats)

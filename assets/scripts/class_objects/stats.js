@@ -2,11 +2,16 @@
 
 import { getElement } from "../utils/getEle.js";
 export function updateStats(game) {
+  
     let coinsDiv = getElement("coins-div")
-    coinsDiv.innerHTML = "Coins: " + game.coins.totalCoins;
+    coinsDiv.innerHTML = `<span style=color:yellow>Coins <br />  ${game.coins.totalCoins} </span>`;
+     coinsDiv.style.border = "2px solid yellow";
+     coinsDiv.style.background = "radial-gradient(#e6646400, #d4d8fa7c)";
+     coinsDiv.style.padding = "2px";
     for (const i in game.ores) {
         let statDiv = getElement(game.ores[i].name + "-ore-total")
-       statDiv.innerHTML = game.ores[i].name + ": " + game.ores[i].stats.total;
+       statDiv.innerHTML =
+         game.ores[i].name + " ore" + "<br />" + game.ores[i].stats.total;
     }
     for (const i in game.smelteries) {
       let statDiv = getElement(game.smelteries[i].name + "-bar-stats");

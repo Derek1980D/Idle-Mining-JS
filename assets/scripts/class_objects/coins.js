@@ -7,10 +7,7 @@
 export function initCoins(game) {
   const coinsColor = "yellow";
   game["coins"] = {}
-  
   game.coins["color"] = coinsColor;
   game.coins["totalCoins"] = 0;
  
- 
-  
 }
