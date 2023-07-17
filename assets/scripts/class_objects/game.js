@@ -42,16 +42,21 @@ export function gameSetup() {
     }
   }
   game["saveStats"] = () => {
+    let coinTotal = game.coins.totalCoins;
     let oreStats = game.ores;
     let smelteryStats = game.smelteries;
-    let stats = [oreStats, smelteryStats]
+    let stats = [];
+    stats.push(coinTotal, oreStats, smelteryStats);
     // stringify stats and save to local storage
-   
+    let statsString = JSON.stringify(stats);
+    localStorage.setItem("stats", ""+statsString);
   }
   game["loadStats"] = () => {
-     for (const i in game.ores) {
-       game.ores[i].update();
-     }
+   let statSTring = JSON.parse(localStorage.getItem("stats"));
+   game.coins.totalCoins = statSTring[0];
+  // game.coins.totalCoins =statSTring[0];
+   console.log(statSTring[0])
+
   }
   
  

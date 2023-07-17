@@ -16,6 +16,7 @@ window.onload = () => {
 function startGame() {
   game = gameSetup();
   game.start();
+   game.loadStats();
   window.requestAnimationFrame(gameLoop);
  
 }
@@ -50,7 +51,8 @@ let gameLoop = (timestamp) => {
   for (const i in game.smelteries) {
     game.smelteries[i].update(timestamp - game.lastTimeStamp);
   }
-
+  game.saveStats();
+ 
   game.lastTimeStamp = timestamp;
   window.requestAnimationFrame(gameLoop);
 };
