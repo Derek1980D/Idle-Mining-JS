@@ -41,7 +41,18 @@ export function gameSetup() {
       createUnlockOreDiv(game, game.oreProgression[0].name, 10);
     }
   }
-  
+  game["saveStats"] = () => {
+    let oreStats = game.ores;
+    let smelteryStats = game.smelteries;
+    let stats = [oreStats, smelteryStats]
+    // stringify stats and save to local storage
+   
+  }
+  game["loadStats"] = () => {
+     for (const i in game.ores) {
+       game.ores[i].update();
+     }
+  }
   
  
     return game;

@@ -1,11 +1,10 @@
 import { gameSetup } from "./class_objects/game.js";
 import { updateStats } from "./class_objects/stats.js";
+
 let game;
 
-
-
 window.onload = () => {
-  
+  // check if sessionstotage is true to load or start a new game is not
   if (sessionStorage.getItem("loadSave") === "true") {
  
   } else {
@@ -13,7 +12,7 @@ window.onload = () => {
   }
 };
 
-// startgame usuaing load save or not then onload to reset of page
+// set up game object and enter the main loop
 function startGame() {
   game = gameSetup();
   game.start();
