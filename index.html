@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link to javascript -->
-    <script type="module" src="./assets/scripts/main.js"></script>
+    
     <!-- link to css-->
     <link rel="stylesheet" href="./assets/CSS/style.css">
     <!-- Font awsome script-->
@@ -30,8 +30,8 @@
             <p>Idle Miner JS is an idle/incremental game about mining and smelting</p>
         </div>
         <div class="newgame-load-buttons">
-            <button id="new-game-button">New Game</button>
-            <button type="button" id="load-game-button" onclick="sayHi()">Load Game</button>
+            <button onclick="newButton()">New Game</button>
+            <button onclick="loadButton()">Load Game</button>
             <!-- add link to tutorial-->
             
         </div>
@@ -56,6 +56,14 @@
             </li>
         </ul>
     </footer>
-
+    <script>
+        function newButton(){
+            sessionStorage.clear()
+            window.location.href = "game.html";
+        }
+        function loadButton(){
+          console.log("saving not ready")
+        }
+    </script>
 </body>
 </html>

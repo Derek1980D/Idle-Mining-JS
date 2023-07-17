@@ -6,7 +6,11 @@ import { createSmelteryUnlockDiv } from "../utils/createSmelteryUnockDiv.js";
 import { setUpMenu } from "../utils/menuSetup.js";
 export function gameSetup() {
   let game = {};
-
+  // game stats for save and load
+  game["stats"] = {
+    totalOres: [],
+    totalBars: [],
+  };
   // some game variables for timing intervals
   game["lastTimeStamp"] = 0;
   game["sinceTimeStamp"] = 0;
@@ -15,6 +19,7 @@ export function gameSetup() {
   game["oreProgression"] = getOreProgression();
   // array to store game smelteries
   game["smelteries"] = [];
+  
   // start a game
   game["start"] = () => {
     setUpMenu();

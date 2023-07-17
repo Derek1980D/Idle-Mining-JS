@@ -1,33 +1,24 @@
 import { gameSetup } from "./class_objects/game.js";
 import { updateStats } from "./class_objects/stats.js";
-
-function sayHi() {
-  console.log("hi");
-}
 let game;
 
-window.onload = () => {
-  // create new game object
-  game = gameSetup();
-  // check if at homepage, load button functions
-  if (window.location.href.includes("index.html")) {
-    let newGameButton = document.getElementById("new-game-button");
-    newGameButton.addEventListener("click", startGame);
-    let loadGameButton = document.getElementById("load-game-button");
-    loadGameButton.addEventListener("click", loadSave);
-  }
 
-  if (window.location.href.includes("game.html")) {
-    // start a game loop
-    game.start();
-    // start the game
-    window.requestAnimationFrame(gameLoop);
+
+window.onload = () => {
+  
+  if (sessionStorage.getItem("loadSave") === "true") {
+ 
+  } else {
+    startGame();
   }
 };
 
 // startgame usuaing load save or not then onload to reset of page
 function startGame() {
-  window.location.href = "game.html";
+  game = gameSetup();
+  game.start();
+  window.requestAnimationFrame(gameLoop);
+ 
 }
 
 let loadSave = () => {

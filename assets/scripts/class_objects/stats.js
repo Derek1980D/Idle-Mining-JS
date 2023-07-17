@@ -2,6 +2,7 @@
 
 import { getElement } from "../utils/getEle.js";
 export function updateStats(game) {
+  let stats = {}
   
     let coinsDiv = getElement("coins-div")
     coinsDiv.innerHTML = `<span style=color:yellow>Coins <br />  ${game.coins.totalCoins} </span>`;

@@ -60,6 +60,7 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
   });
 
   ore["update"] = () => {
+    
     ore.stats.total += ore.stats.miners * ore.stats.perMiner;
     //
     ore.divs.divText.innerHTML = `<span style='color:${color}'>${ore.name}</span>: ${ore.stats.total}<br>Miners: ${ore.stats.miners}<br><span style='color:${color}'>${ore.name}</span>/Miner: ${ore.stats.perMiner}`;
@@ -72,6 +73,6 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
     ore.divs.sellText.innerHTML = `<span style='color:${color}'>${ore.name}</span> Value:  <span style='color:${game.coins.color}'> ${ore.stats.value}</span>     `;
   };
   game.ores.push(ore);
-  
-  //return(ore);
+
+ 
 }
