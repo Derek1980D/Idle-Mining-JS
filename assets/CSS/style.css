@@ -64,11 +64,12 @@ body {
     text-align: center;
 }
 
-.newgame-load-buttons {
+.start-game-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10%;
+    width: 100%;
+    height: 50%;
 }
 
 .link-to-tutorial {
@@ -361,7 +362,7 @@ body {
 }
 
 
-@media only screen and (max-width:420px) {
+@media only screen and (max-width:600px) {
 
     #game-main-div {
         height: 100%;

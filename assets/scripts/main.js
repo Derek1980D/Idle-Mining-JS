@@ -5,10 +5,13 @@ let game;
 
 window.onload = () => {
   // check if sessionstotage is true to load or start a new game is not
-  if (sessionStorage.getItem("loadSave") === "true") {
- 
+  if (localStorage.getItem("loadSave") === "true") {
+    
+    loadSave();
   } else {
+    localStorage.setItem("loadSave", "true");
     startGame();
+    console.log("hi");
   }
 };
 
@@ -16,16 +19,17 @@ window.onload = () => {
 function startGame() {
   game = gameSetup();
   game.start();
-   game.loadStats();
   window.requestAnimationFrame(gameLoop);
- 
 }
 
 let loadSave = () => {
+  sessionStorage.setItem("loadSave", "true");
   // load data from local storage
-
+  game = gameSetup();
+  game.start();
+  game.loadStats();
   // start game
-  startGame();
+  window.requestAnimationFrame(gameLoop);
 };
 
 /**
@@ -52,7 +56,7 @@ let gameLoop = (timestamp) => {
     game.smelteries[i].update(timestamp - game.lastTimeStamp);
   }
   game.saveStats();
- 
+
   game.lastTimeStamp = timestamp;
   window.requestAnimationFrame(gameLoop);
 };

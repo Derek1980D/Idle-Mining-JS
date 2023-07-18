@@ -30,8 +30,8 @@
             <p>Idle Miner JS is an idle/incremental game about mining and smelting</p>
         </div>
         <div class="newgame-load-buttons">
-            <button onclick="newButton()">New Game</button>
-            <button onclick="loadButton()">Load Game</button>
+            <button class="start-game-button "onclick="newButton()">New Game</button>
+            <button class="start-game-button" onclick="loadButton()">Load Game</button>
             <!-- add link to tutorial-->
             
         </div>
@@ -58,11 +58,13 @@
     </footer>
     <script>
         function newButton(){
-            sessionStorage.clear()
+            localStorage.clear()
             window.location.href = "game.html";
         }
         function loadButton(){
-          console.log("saving not ready")
+          localStorage.setItem("loadSave", "true");
+            window.location.href = "game.html";
+            
         }
     </script>
 </body>
