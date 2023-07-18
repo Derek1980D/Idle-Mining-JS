@@ -154,8 +154,6 @@ body {
 
 }
 
-
-
 #coins-div {
     color: darkgoldenrod;
     width: 50%;
@@ -345,20 +343,20 @@ body {
     padding: 5px;
 }
 
-#game-menu-smelt {
-    width: 100%;
+#game-menu-smelt-div {
+    width: 50%;
 }
 
-#game-menu-mine {
-    width: 100%;
+#game-menu-mine-div {
+    width: 50%;
 }
 
-#game-menu-craft {
-    width: 100%;
+#game-menu-craft-div {
+    width: 50%;
 }
 
-#game-menu-settings {
-    width: 100%;
+#game-menu-settings-div {
+    width: 50%;
 }
 
 
@@ -381,13 +379,13 @@ body {
 
 
         width: 100%;
-        height: 30%;
+        height: 20%;
     }
 
     .play-area-container {
 
         width: 100%;
-        height: 50%;
+        height: 30%;
     }
 
     .game-menu-container {
