@@ -2,10 +2,10 @@ import { getElement } from "./getEle.js";
 
 export function setUpMenu(){
   // !!!!--------- >>>>>>>>  loop to create tehse for less code?
-  let mineMenu = getElement("game-menu-mine");
-  let smeltMenu = getElement("game-menu-smelt");
-  let craftMenu = getElement("game-menu-craft");
-  let settingsMenu = getElement("game-menu-settings");
+  let mineMenu = getElement("game-menu-mine-div");
+  let smeltMenu = getElement("game-menu-smelt-div");
+  let craftMenu = getElement("game-menu-craft-div");
+  let settingsMenu = getElement("game-menu-settings-div");
   getElement("ore-play-area-div").style.display = "flex";
   // !!! --------implement svg stroke style changes possibly
   mineMenu.style.backgroundColor = "green";
