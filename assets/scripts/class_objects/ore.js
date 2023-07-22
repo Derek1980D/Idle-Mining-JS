@@ -21,9 +21,9 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
   oreTotal.innerHTML = "hi";
  
   let ore = {} ;
-  ore["name"] = oreName;
-  ore["multiplier"] = _multiplier;
-  ore["stats"] = {
+  ore.name = oreName;
+  ore.multiplier = _multiplier;
+  ore.stats = {
     total: 0,
     miners: 1,
     minerCost: 10 * _multiplier,
@@ -33,15 +33,15 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
     amountForSmelt: 5
   };
 
-  ore["color"] = color;
+  ore.color = color;
   
-  ore["divs"] = {
+  ore.divs = {
     divText: getElement(oreName + "-text-div"),
     minerText: getElement(oreName + "-miner-text-div"),
     sellText: getElement("sell-" + oreName + "-text-div"),
   };
 
-  ore["buttons"] = {
+  ore.buttons = {
     hireButton: getElement("hire-" + oreName + "-miner-button"),
     sellButton: getElement("sell-" + oreName + "-button"),
   };
@@ -59,7 +59,7 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
     ore.stats.total = 0;
   });
 
-  ore["update"] = () => {
+  ore.update = () => {
     
     ore.stats.total += ore.stats.miners * ore.stats.perMiner;
     //

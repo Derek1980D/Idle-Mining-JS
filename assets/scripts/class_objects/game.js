@@ -7,21 +7,21 @@ import { setUpMenu } from "../utils/menuSetup.js";
 export function gameSetup() {
   let game = {};
   // game stats for save and load
-  game["stats"] = {
+  game.stats = {
     totalOres: [],
     totalBars: [],
   };
   // some game variables for timing intervals
-  game["lastTimeStamp"] = 0;
-  game["sinceTimeStamp"] = 0;
+  game.lastTimeStamp = 0;
+  game.sinceTimeStamp = 0;
   // array to store game ores
-  game["ores"] = [];
-  game["oreProgression"] = getOreProgression();
+  game.ores = [];
+  game.oreProgression = getOreProgression();
   // array to store game smelteries
-  game["smelteries"] = [];
+  game.smelteries = [];
   
   // start a game
-  game["start"] = () => {
+  game.start = () => {
     setUpMenu();
     initCoins(game);
     // init the first item in ore progression 
@@ -41,7 +41,7 @@ export function gameSetup() {
       createUnlockOreDiv(game, game.oreProgression[0].name, 10);
     }
   }
-  game["saveStats"] = () => {
+  game.saveStats = () => {
     let coinTotal = game.coins.totalCoins;
     let oreStats = game.ores;
     let smelteryStats = game.smelteries;
@@ -51,7 +51,7 @@ export function gameSetup() {
     let statsString = JSON.stringify(stats);
     localStorage.setItem("stats", ""+statsString);
   }
-  game["loadStats"] = () => {
+  game.loadStats = () => {
    let statSTring = JSON.parse(localStorage.getItem("stats"));
    game.coins.totalCoins = statSTring[0];
   // game.coins.totalCoins =statSTring[0];

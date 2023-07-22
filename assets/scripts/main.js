@@ -4,7 +4,7 @@ import { updateStats } from "./class_objects/stats.js";
 let game;
 
 window.onload = () => {
-  // check if sessionstotage is true to load or start a new game is not
+  // check if sessionstotage is true to load or start a new game 
   if (localStorage.getItem("loadSave") === "true") {
     
     loadSave();
@@ -55,6 +55,7 @@ let gameLoop = (timestamp) => {
   for (const i in game.smelteries) {
     game.smelteries[i].update(timestamp - game.lastTimeStamp);
   }
+  // save game stats to local storage
   game.saveStats();
 
   game.lastTimeStamp = timestamp;

@@ -11,8 +11,8 @@ export function initSmeltery(game, ore) {
   statsPanel.appendChild(smelteryStats);
   // create a smeltery object
   let smeltery = {};
-  smeltery["name"] = ore.name;
-  smeltery["stats"] = {
+  smeltery.name = ore.name;
+  smeltery.stats = {
     // can multiply these later with upgrades.
     smeltTime: ore.stats.smeltTime,
     smeltCost: ore.stats.amountForSmelt,
@@ -23,13 +23,13 @@ export function initSmeltery(game, ore) {
     smeltProgressPercent: 0,
     totalBars:0
   };
-  smeltery["color"] = ore.color;
+  smeltery.color = ore.color;
 
-  smeltery["divs"] = {
+  smeltery.divs = {
     divText: getElement("smelt-" + ore.name + "-text"),
     progessBar: getElement("smelt-" + ore.name + "-progress"),
   };
-  smeltery["update"] = (interval) => {
+  smeltery.update = (interval) => {
     smeltery.divs.divText.innerHTML =
       "Smelt " +
       smeltery.stats.smeltCost +
