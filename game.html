@@ -1,9 +1,3 @@
-//wtite a class for styling w-40 and everthing with width 40for expample
-//jshint .com
-// mention wher ei learned import export functions.
-//front end mentor check this out
-// css froggy, flexbog
-// game["ores"] chanhge to game.ores for crreatung gme variables
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,26 +34,30 @@
                 </div>
                 <div id="smelt-play-area-div">
                     <div id="smelt-play-area-contents-div">
-                    
+
                     </div>
                 </div>
                 <div id="craft-play-area-div">craft</div>
                 <div id="settings-play-area-div">settings</div>
             </div>
-        </div>   
+        </div>
         <div class="game-menu-container">
             <div class="game-menu-div">
                 <ul class="game-menu">
-                    <li id="game-menu-mine-div"><img id="game-menu-mine-img" src="./assets/images/pick_icon.svg" alt="ore icon"></li>
-                    <li id="game-menu-smelt-div"><img id="game-menu-smelt-img" src="./assets/images/smelt_icon.svg" alt="smelting icon"></li>
-                    <li id="game-menu-craft-div"><img id="game-menu-craft-img" src="./assets/images/craft_icon.svg" alt="hammer and screwdriver icon">
+                    <li id="game-menu-mine-div"><img class="game-menu-img" id="game-menu-mine-img"
+                            src="./assets/images/pick_icon.svg" alt="ore icon"></li>
+                    <li id="game-menu-smelt-div"><img class="game-menu-img" id="game-menu-smelt-img"
+                            src="./assets/images/smelt_icon.svg" alt="smelting icon"></li>
+                    <li id="game-menu-craft-div"><img class="game-menu-img" id="game-menu-craft-img"
+                            src="./assets/images/craft_icon.svg" alt="hammer and screwdriver icon">
                     </li>
-                    <li id="game-menu-settings-div"><img id="game-menu-settings-img" src="./assets/images/settings_icon.svg" alt=""></li>
+                    <li id="game-menu-settings-div"><img class="game-menu-img" id="game-menu-settings-img"
+                            src="./assets/images/settings_icon.svg" alt=""></li>
                 </ul>
             </div>
         </div>
     </main>
-   
+
     <!-- Ore Templates -->
     <template id="ore-template">
         <div id="template-text-div" class="ore-text-css"></div>
@@ -82,10 +80,10 @@
 
     <!-- Smelting Templates -->
     <template id="ore-smelt-template">
-       <div id="smelt-template-text"></div>
-       <div class="smelt-bar">
-        <div id="smelt-template-progress" class="smelt-bar-progress"></div>
-       </div>
+        <div id="smelt-template-text"></div>
+        <div class="smelt-bar">
+            <div id="smelt-template-progress" class="smelt-bar-progress"></div>
+        </div>
     </template>
 
     <template id="unlock-smeltery-template">

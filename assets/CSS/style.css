@@ -4,8 +4,11 @@
 
 html,
 body {
-
-    height: 100vh;
+    
+        text-shadow:  1px 1px  rgba(0, 0, 0, 0.397),
+            -1px -1px  rgba(0, 0, 0, 0.39);
+            font-size: 24px;
+            height: 100%;
     width: 100vw;
     padding: 0;
     margin: 0;
@@ -187,16 +190,6 @@ body {
 }
 
 
-/* menu area */
-.game-menu-div {
-    border: 2px solid white;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Ore div common styling
  specifc to ore will be set up in javascript */
 .ore-div-container-css,
@@ -222,7 +215,7 @@ body {
     padding: 3px;
     color: beige;
     justify-content: center;
-
+    line-height: 22px;
     border-radius: 20px;
     position: relative;
 }
@@ -230,8 +223,8 @@ body {
 .ore-text-css {
     position: absolute;
     background: radial-gradient(#b79d9d00, #b1b7f1bc);
-    padding-top: 5%;
     
+    padding-top: 2px;
     height: 30%;
     width: 97%;
     left: 1.5%;
@@ -268,6 +261,7 @@ body {
 
 .unlock-ore-div-css {
     border: 2px solid blue;
+    color: white;
     border-radius: 20px;
     width: 50%;
     height: 50%;
@@ -305,6 +299,7 @@ body {
 
 .unlock-smeltery-div-css {
     border: 2px solid blue;
+    color: white;
     border-radius: 20px;
     width: 50%;
     height: 50%;
@@ -319,6 +314,18 @@ body {
 
 
 /* Menu */
+/* menu area */
+.game-menu-div {
+    border: 2px solid white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-menu-img {
+    width: 100%;
+}
 .game-menu {
     list-style: none;
     display: flex;
@@ -327,7 +334,7 @@ body {
     flex-direction: column;
     padding: 0;
     margin: 0;
-    width: 80%;
+    width: 100%;
 }
 
 
@@ -386,6 +393,7 @@ body {
 
         width: 100%;
         height: 30%;
+        
     }
 
     .game-menu-container {
@@ -408,4 +416,8 @@ body {
         flex-direction: row;
 
     }
+        .ore-div-css,
+        .smelt-div-css {
+            line-height: 16px;
+        }
 }

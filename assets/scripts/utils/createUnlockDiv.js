@@ -30,7 +30,15 @@ export function createUnlockOreDiv(game, name, cost) {
   
   unlockButton.addEventListener("click", () => {
     if (game.coins.totalCoins >= cost) {
-      initOre(game, game.oreProgression[0].name , game.oreProgression[0].color, game.oreProgression[0].multiplier);
+      initOre(
+        game,
+        game.oreProgression[0].name,
+        game.oreProgression[0].color,
+        game.oreProgression[0].multiplier,
+        game.oreProgression[0].smeltTime,
+        game.oreProgression[0].smeltCost,
+        game.oreProgression[0].smelteryUnlockCost
+      );
       game.oreProgression.shift();
       newConatiner.remove();
       if (game.oreProgression.length > 0) {

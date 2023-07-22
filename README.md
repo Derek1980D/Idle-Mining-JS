@@ -29,7 +29,7 @@ __The Game__
 
 ## Testing
 
- 
+ Using https://jshint.com/ I got warnings for using brackets instead of . notation. I decided to keep brackets for creating new properties and methods for easier to read code, brackets is a new property or method, .notation is for accessing a property or method in this case.
 
  ### Validator Testing 
 
@@ -56,7 +56,10 @@ The live link can be found here -
 [//]: # (game link here)
 
 ## Credits 
+
 Lots of help here https://www.w3schools.com/
+https://www.w3schools.com/js/js_modules.asp To find out how to import from other .js files for example.
+
   ### images
 
   - ore chunk Created by Deivid Sáenz https://thenounproject.com/deivid.saenz/

@@ -1,47 +1,47 @@
 import { getElement } from "../utils/getEle.js";
 import { createOreDiv } from "../utils/createOreDiv.js";
-
-export function initOre(game, oreName, color, _multiplier, smeltTime) {
-  
-  createOreDiv(oreName, color); 
+import { createSmelteryUnlockDiv } from "../utils/createSmelteryUnockDiv.js";
+export function initOre(game, oreName, color, _multiplier, smeltTime, smeltCost, smelteryUnlockCost) {
+  createOreDiv(oreName, color);
   // add new ore to stats panel
   let oreStats = document.createElement("div");
-  oreStats.setAttribute("id", oreName + "-stats")
-  oreStats.style.border = "2px solid "+ color;
+  oreStats.setAttribute("id", oreName + "-stats");
+  oreStats.style.border = "2px solid " + color;
   oreStats.style.background = "radial-gradient(#e6646400, #d4d8fa7c)";
-  oreStats.style.padding = "2px"
+  oreStats.style.padding = "2px";
   oreStats.style.marginTop = "5px";
-  oreStats.style.width = "90%"
-  // 
+  oreStats.style.width = "90%";
+  //
   let statsPanel = getElement("stats-div");
-  statsPanel.appendChild(oreStats)
+  statsPanel.appendChild(oreStats);
   let oreTotal = document.createElement("div");
-  oreTotal.setAttribute("id", oreName + "-ore-total")
+  oreTotal.setAttribute("id", oreName + "-ore-total");
   oreStats.appendChild(oreTotal);
   oreTotal.innerHTML = "hi";
- 
-  let ore = {} ;
-  ore.name = oreName;
-  ore.multiplier = _multiplier;
-  ore.stats = {
+
+  let ore = {};
+  ore["name"] = oreName;
+  ore["multiplier"] = _multiplier;
+  ore["stats"] = {
     total: 0,
     miners: 1,
     minerCost: 10 * _multiplier,
     perMiner: 1,
     value: 1 * _multiplier,
+    smelteryUnlockCost: smelteryUnlockCost,
     smeltTime: smeltTime,
-    amountForSmelt: 5
+    smeltCost: smeltCost,
   };
+ ;
+  ore["color"] = color;
 
-  ore.color = color;
-  
-  ore.divs = {
+  ore["divs"] = {
     divText: getElement(oreName + "-text-div"),
     minerText: getElement(oreName + "-miner-text-div"),
     sellText: getElement("sell-" + oreName + "-text-div"),
   };
 
-  ore.buttons = {
+  ore["buttons"] = {
     hireButton: getElement("hire-" + oreName + "-miner-button"),
     sellButton: getElement("sell-" + oreName + "-button"),
   };
@@ -59,8 +59,7 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
     ore.stats.total = 0;
   });
 
-  ore.update = () => {
-    
+  ore["update"] = () => {
     ore.stats.total += ore.stats.miners * ore.stats.perMiner;
     //
     ore.divs.divText.innerHTML = `<span style='color:${color}'>${ore.name}</span>: ${ore.stats.total}<br>Miners: ${ore.stats.miners}<br><span style='color:${color}'>${ore.name}</span>/Miner: ${ore.stats.perMiner}`;
@@ -73,6 +72,6 @@ export function initOre(game, oreName, color, _multiplier, smeltTime) {
     ore.divs.sellText.innerHTML = `<span style='color:${color}'>${ore.name}</span> Value:  <span style='color:${game.coins.color}'> ${ore.stats.value}</span>     `;
   };
   game.ores.push(ore);
-
- 
+  // place first smeltery unlock
+  createSmelteryUnlockDiv(game, ore);
 }

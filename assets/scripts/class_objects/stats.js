@@ -13,10 +13,16 @@ export function updateStats(game) {
     for (const i in game.ores) {
         let statDiv = getElement(game.ores[i].name + "-ore-total")
        statDiv.innerHTML =
-         game.ores[i].name + " ore" + "<br />" + game.ores[i].stats.total;
+         `<span style='color:${game.ores[i].color}'>${game.ores[i].name} ore:</span>` +
+         "<br />" +
+        `<span style='color:white'>  ${game.ores[i].stats.total}</span>`;
     }
     for (const i in game.smelteries) {
       let statDiv = getElement(game.smelteries[i].name + "-bar-stats");
-      statDiv.innerHTML = game.smelteries[i].name + " bars: " + game.smelteries[i].stats.totalBars;
+      statDiv.innerHTML =
+        `<span style='color:${game.smelteries[i].color}'>${game.smelteries[i].name} bars:</span>` +
+        "<br />" +
+       `<span style='color:white> ${game.smelteries[i].stats.totalBars}</span`;
+       
     }
 } 
