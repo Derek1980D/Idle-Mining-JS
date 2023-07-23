@@ -12,7 +12,7 @@ export function createSmelteryUnlockDiv(game, ore) {
 
   let newConatiner = document.createElement("div");
   newConatiner.setAttribute("id", ore.name + "-div");
-  newConatiner.setAttribute("class", "smeltery-div-container-css");
+  newConatiner.setAttribute("class", "smelt-div-container-css");
 
   let mainDiv = getElement("smelt-play-area-contents-div");
   mainDiv.appendChild(newConatiner);

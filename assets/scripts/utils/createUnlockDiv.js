@@ -41,9 +41,16 @@ export function createUnlockOreDiv(game, name, cost) {
       );
       game.oreProgression.shift();
       newConatiner.remove();
-      if (game.oreProgression.length > 0) {
-         createUnlockOreDiv(game, "gold", 100);
-      }
+     if (game.oreProgression.length >= 1) {
+       createUnlockOreDiv(
+         game,
+         game.oreProgression[0].name,
+         game.oreProgression[0].unlockCost
+       );
+     }
+     
+      
+     
      
     }
   });

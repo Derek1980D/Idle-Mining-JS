@@ -4,14 +4,13 @@ import { updateStats } from "./class_objects/stats.js";
 let game;
 
 window.onload = () => {
-  // check if sessionstotage is true to load or start a new game 
+  // check local storage to see if loading stats or new game
   if (localStorage.getItem("loadSave") === "true") {
-    
     loadSave();
   } else {
-    localStorage.setItem("loadSave", "true");
+    
     startGame();
-    console.log("hi");
+    
   }
 };
 
@@ -40,16 +39,14 @@ let loadSave = () => {
 let gameLoop = (timestamp) => {
   // get time past since last here
   game.sinceTimeStamp += timestamp - game.lastTimeStamp;
-
+  updateStats(game);
   // Update every second
   if (game.sinceTimeStamp / 1000 >= 1) {
     game.sinceTimeStamp = 0;
     // loop through game ores to update
     for (const i in game.ores) {
       game.ores[i].update();
-    }
-    // move this to game.update?
-    updateStats(game);
+    }  
   }
   // update smelteries
   for (const i in game.smelteries) {
@@ -57,7 +54,8 @@ let gameLoop = (timestamp) => {
   }
   // save game stats to local storage
   game.saveStats();
-
   game.lastTimeStamp = timestamp;
+  console.log(game.oreProgression.length)
   window.requestAnimationFrame(gameLoop);
+ 
 };

@@ -4,11 +4,10 @@
 
 html,
 body {
-    
-        text-shadow:  1px 1px  rgba(0, 0, 0, 0.397),
-            -1px -1px  rgba(0, 0, 0, 0.39);
-            font-size: 24px;
-            height: 100%;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.397),
+        -1px -1px rgba(0, 0, 0, 0.39);
+    font-size: 24px;
+    height: 100%;
     width: 100vw;
     padding: 0;
     margin: 0;
@@ -109,7 +108,6 @@ body {
 
 /* game page */
 #game-main-div {
-
     height: 100%;
     width: 100%;
     display: flex;
@@ -121,28 +119,20 @@ body {
 .stats-container,
 .play-area-container,
 .game-menu-container {
-
-
-
     height: 100%;
-
 }
 
 .stats-container {
     width: 20%;
-
 }
 
 .play-area-container {
-
     width: 55%;
     flex-grow: 4
 }
 
 .game-menu-container {
-
     width: 19%;
-
 }
 
 /* stats area */
@@ -194,8 +184,8 @@ body {
  specifc to ore will be set up in javascript */
 .ore-div-container-css,
 .smelt-div-container-css {
-
     min-width: 50%;
+    width: 50%;
     min-height: 50%;
     max-height: 50%;
     display: flex;
@@ -205,7 +195,6 @@ body {
 
 .ore-div-css,
 .smelt-div-css {
-
     width: 80%;
     height: 80%;
     display: flex;
@@ -223,7 +212,6 @@ body {
 .ore-text-css {
     position: absolute;
     background: radial-gradient(#b79d9d00, #b1b7f1bc);
-    
     padding-top: 2px;
     height: 30%;
     width: 97%;
@@ -231,7 +219,6 @@ body {
     top: 2%;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
-
 }
 
 .ore-miner-css {
@@ -259,44 +246,7 @@ body {
     background: radial-gradient(#b79d9d00, #b1b7f1bc);
 }
 
-.unlock-ore-div-css {
-    border: 2px solid blue;
-    color: white;
-    border-radius: 20px;
-    width: 50%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 3px;
-    background-color: rgb(71, 124, 124);
-
-}
-
-
-/* smelting */
-.smeltery-div-container-css {
-    min-width: 50%;
-    min-height: 50%;
-    max-height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.smelt-bar {
-    height: 40%;
-    background-color: beige;
-}
-
-.smelt-bar-progress {
-    height: 50%;
-    width: 50%;
-    background-color: #5a35a5;
-}
-
+.unlock-ore-div-css,
 .unlock-smeltery-div-css {
     border: 2px solid blue;
     color: white;
@@ -308,13 +258,24 @@ body {
     justify-content: center;
     flex-direction: column;
     padding: 3px;
-    background-color: rgb(52, 62, 62);
+    background-color: rgb(71, 124, 124);
 }
 
+/* smelting */
+.smelt-bar {
+    height: 15%;
+    background-color: beige;
+    border: 2px solid white;
+    background-color: #5a35a5;
+}
 
+.smelt-bar-progress {
+    height: 100%;
+    width: 0%;
+    background-color: #7962a6;
+}
 
 /* Menu */
-/* menu area */
 .game-menu-div {
     border: 2px solid white;
     height: 100%;
@@ -326,6 +287,7 @@ body {
 .game-menu-img {
     width: 100%;
 }
+
 .game-menu {
     list-style: none;
     display: flex;
@@ -338,9 +300,8 @@ body {
 }
 
 
-
 .game-menu li {
-    width: 70%;
+    width: 50%;
     align-items: center;
     justify-content: center;
     border: 2px solid white;
@@ -350,24 +311,8 @@ body {
     padding: 5px;
 }
 
-#game-menu-smelt-div {
-    width: 50%;
-}
 
-#game-menu-mine-div {
-    width: 50%;
-}
-
-#game-menu-craft-div {
-    width: 50%;
-}
-
-#game-menu-settings-div {
-    width: 50%;
-}
-
-
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:750px) {
 
     #game-main-div {
         height: 100%;
@@ -383,41 +328,58 @@ body {
     }
 
     .stats-container {
-
-
         width: 100%;
         height: 20%;
     }
 
-    .play-area-container {
+    #stats-div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 
+    .play-area-container {
         width: 100%;
         height: 30%;
-        
     }
 
     .game-menu-container {
-
         width: 100%;
         height: 19%;
     }
 
-
     .play-area-div {
-
         width: 100%;
     }
-
-
 
     .game-menu {
         list-style: none;
         display: flex;
         flex-direction: row;
-
     }
-        .ore-div-css,
-        .smelt-div-css {
-            line-height: 16px;
-        }
+
+    .ore-div-css,
+    .smelt-div-css {
+        line-height: 16px;
+    }
+
+    .stat-item {
+        max-width: 30%;
+    }
+
+    .game-menu-div ul {
+        width: 80%;
+        max-height: 70%;
+        align-items: center;
+        justify-content: center;
+        margin: 2px;
+        padding: 30px;
+    }
+
+    .game-menu-div image {
+        max-height: 40%;
+        max-width: 40%;
+        background-color: rebeccapurple;
+    }
 }

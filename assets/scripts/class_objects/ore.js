@@ -1,3 +1,4 @@
+
 import { getElement } from "../utils/getEle.js";
 import { createOreDiv } from "../utils/createOreDiv.js";
 import { createSmelteryUnlockDiv } from "../utils/createSmelteryUnockDiv.js";
@@ -11,6 +12,7 @@ export function initOre(game, oreName, color, _multiplier, smeltTime, smeltCost,
   oreStats.style.padding = "2px";
   oreStats.style.marginTop = "5px";
   oreStats.style.width = "90%";
+  oreStats.setAttribute("class", "stat-item")
   //
   let statsPanel = getElement("stats-div");
   statsPanel.appendChild(oreStats);
@@ -73,5 +75,9 @@ export function initOre(game, oreName, color, _multiplier, smeltTime, smeltCost,
   };
   game.ores.push(ore);
   // place first smeltery unlock
+  if (game.oreProgression.length > 0) {
+   
+   
+  }
   createSmelteryUnlockDiv(game, ore);
 }
