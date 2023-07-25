@@ -55,7 +55,7 @@ let gameLoop = (timestamp) => {
   // save game stats to local storage
   game.saveStats();
   game.lastTimeStamp = timestamp;
-  console.log(game.oreProgression.length)
+  
   window.requestAnimationFrame(gameLoop);
  
 };

@@ -9,7 +9,7 @@ export function createSmelteryUnlockDiv(game, ore) {
   let smelteryUnlockDiv = getElement("unlock-smeltery-template");
 
   let newinnerHTML = smelteryUnlockDiv.innerHTML.replace(/template/g, ore.name);
-
+/// --!! spelling
   let newConatiner = document.createElement("div");
   newConatiner.setAttribute("id", ore.name + "-div");
   newConatiner.setAttribute("class", "smelt-div-container-css");
@@ -33,7 +33,7 @@ export function createSmelteryUnlockDiv(game, ore) {
     ore.stats.smelteryUnlockCost +
     " coins";
   let unlockButton = getElement("unlock-" + ore.name + "-smeltery-button");
-
+ 
   unlockButton.addEventListener("click", () => {
     if (game.coins.totalCoins >= ore.stats.smelteryUnlockCost) {
       initSmeltery(game, ore);

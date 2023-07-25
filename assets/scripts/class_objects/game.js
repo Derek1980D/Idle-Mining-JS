@@ -36,17 +36,20 @@ export function gameSetup() {
         game.oreProgression[0].smeltCost,
         game.oreProgression[0].smelteryUnlockCost
       );
-     
+
       game.oreProgression.shift();
-      createUnlockOreDiv(game, game.oreProgression[0].name, game.oreProgression[0].unlockCost);
+      createUnlockOreDiv(
+        game,
+        game.oreProgression[0].name,
+        game.oreProgression[0].unlockCost
+      );
     }
     localStorage.setItem("loadSave", "true");
-    
-    
   };
   game["saveStats"] = () => {
     let coinTotal = game.coins.totalCoins;
     let oreStats = game.ores;
+
     let smelteryStats = game.smelteries;
     let stats = [];
     stats.push(coinTotal, oreStats, smelteryStats);
@@ -57,29 +60,27 @@ export function gameSetup() {
   game["loadStats"] = () => {
     let statSTring = JSON.parse(localStorage.getItem("stats"));
     game.coins.totalCoins = statSTring[0];
-   
-    
-     
-    statSTring[1].forEach((item) =>
+
+    statSTring[1].forEach((item) => {
       initOre(
         game,
         item.name,
         item.color,
         item.multiplier,
-        item.smeltTime,
-        item.smeltCost,
-        item.smelteryUnlockCost
-      )
-    );
-     statSTring[1].forEach((item) => game.oreProgression.shift());
+        item.stats.smeltTime,
+        item.stats.smeltCost,
+        item.stats.smelteryUnlockCost
+      );
+      game.oreProgression.shift();
+    });
+
     if (game.oreProgression.length >= 1) {
-       createUnlockOreDiv(
-         game,
-         game.oreProgression[0].name,
-         game.oreProgression[0].unlockCost
-       );
+      createUnlockOreDiv(
+        game,
+        game.oreProgression[0].name,
+        game.oreProgression[0].unlockCost
+      );
     }
-  
   };
 
   return game;
