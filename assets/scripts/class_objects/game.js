@@ -65,22 +65,24 @@ export function gameSetup() {
     let statSTring = JSON.parse(localStorage.getItem("stats"));
     game.coins.totalCoins = statSTring[0];
 
-    statSTring[1].forEach((item) => {
+    for (let i = 0; i < statSTring[1].length; i++) {
       initOre(
         game,
-        item.name,
-        item.color,
-        item.multiplier,
-        item.stats.smeltTime,
-        item.stats.smeltCost,
-        item.stats.smelteryUnlockCost
+        statSTring[1][i].name,
+        statSTring[1][i].color,
+        statSTring[1][i].multiplier,
+        statSTring[1][i].stats.smeltTime,
+        statSTring[1][i].stats.smeltCost,
+        statSTring[1][i].stats.smelteryUnlockCost
       );
 
-      
+      game.ores[i].stats.total = statSTring[1][i].stats.total;
       game.oreProgression.shift();
        
-    });
-
+      }
+      if (statSTring[2].length === 0) {
+        createSmelteryUnlockDiv(game, game.ores[0]);
+      }
     for (let i = 0; i < statSTring[2].length; i++) {
      initSmeltery(game, game.ores[i]);
       
