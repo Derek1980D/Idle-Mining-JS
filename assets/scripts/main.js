@@ -52,6 +52,7 @@ let gameLoop = (timestamp) => {
   for (const i in game.smelteries) {
     game.smelteries[i].update(timestamp - game.lastTimeStamp);
   }
+ 
   // save game stats to local storage
   game.saveStats();
   game.lastTimeStamp = timestamp;

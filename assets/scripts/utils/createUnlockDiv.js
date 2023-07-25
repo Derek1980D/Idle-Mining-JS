@@ -1,5 +1,6 @@
 import { getElement } from "./getEle.js";
 import { initOre } from "../class_objects/ore.js";
+import { createSmelteryUnlockDiv } from "../utils/createSmelteryUnockDiv.js";
 /**
  *
  * @param {string} name name of next unlock
@@ -27,7 +28,7 @@ export function createUnlockOreDiv(game, name, cost) {
   // !!!!--------->> change to colors of ore to be unlocked
   unlockText.innerHTML = "Unlock " + name + " for " + cost;
   let unlockButton = getElement("unlock-" + name + "-button");
-  
+
   unlockButton.addEventListener("click", () => {
     if (game.coins.totalCoins >= cost) {
       initOre(
@@ -39,20 +40,16 @@ export function createUnlockOreDiv(game, name, cost) {
         game.oreProgression[0].smeltCost,
         game.oreProgression[0].smelteryUnlockCost
       );
+       createSmelteryUnlockDiv(game, game.ores[game.ores.length-1]);
       game.oreProgression.shift();
       newConatiner.remove();
-     if (game.oreProgression.length >= 1) {
-       createUnlockOreDiv(
-         game,
-         game.oreProgression[0].name,
-         game.oreProgression[0].unlockCost
-       );
-     }
-     
-      
-     
-     
+      if (game.oreProgression.length >= 1) {
+        createUnlockOreDiv(
+          game,
+          game.oreProgression[0].name,
+          game.oreProgression[0].unlockCost
+        );
+      }
     }
   });
-
 }

@@ -1,3 +1,5 @@
+import { createSmelteryUnlockDiv } from "../utils/createSmelteryUnockDiv.js";
+import { initSmeltery } from "../class_objects/smeltery.js";
 import { createUnlockOreDiv } from "../utils/createUnlockDiv.js";
 import { initCoins } from "./coins.js";
 import { initOre } from "./ore.js";
@@ -43,6 +45,8 @@ export function gameSetup() {
         game.oreProgression[0].name,
         game.oreProgression[0].unlockCost
       );
+
+      createSmelteryUnlockDiv(game, game.ores[0]);
     }
     localStorage.setItem("loadSave", "true");
   };
@@ -71,9 +75,17 @@ export function gameSetup() {
         item.stats.smeltCost,
         item.stats.smelteryUnlockCost
       );
+
+      
       game.oreProgression.shift();
+       
     });
 
+    for (let i = 0; i < statSTring[2].length; i++) {
+     initSmeltery(game, game.ores[i]);
+      
+    }
+   
     if (game.oreProgression.length >= 1) {
       createUnlockOreDiv(
         game,
@@ -86,6 +98,4 @@ export function gameSetup() {
   return game;
 }
 
-function sayHI() {
-  console.log("hi");
-}
+

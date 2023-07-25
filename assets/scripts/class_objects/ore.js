@@ -74,7 +74,7 @@ export function initOre(game, oreName, color, _multiplier, smeltTime, smeltCost,
     ore.divs.sellText.innerHTML = `<span style='color:${color}'>${ore.name}</span> Value:  <span style='color:${game.coins.color}'> ${ore.stats.value}</span>     `;
   };
   
-  createSmelteryUnlockDiv(game, ore);
+ 
   game.ores.push(ore);
 
   
