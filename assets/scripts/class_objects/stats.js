@@ -20,6 +20,7 @@ export function updateStats(game) {
     statDiv.innerHTML =
       `<span style='color:${game.smelteries[i].color}'>${game.smelteries[i].name} bars:</span>` +
       "<br />" +
-      `<span style='color:white> ${game.smelteries[i].stats.totalBars}</span`;
+      `<span style='color:white'> ${game.smelteries[i].stats.totalBars}</span`;
+      console.log(game.smelteries[i].stats.totalBars);
   }
 }

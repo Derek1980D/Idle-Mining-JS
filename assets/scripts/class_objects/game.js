@@ -85,7 +85,7 @@ export function gameSetup() {
       }
     for (let i = 0; i < statSTring[2].length; i++) {
      initSmeltery(game, game.ores[i]);
-      
+      game.smelteries[i].stats.totalBars = statSTring[2][i].stats.totalBars;
     }
    
     if (game.oreProgression.length >= 1) {
