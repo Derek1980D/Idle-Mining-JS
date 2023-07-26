@@ -12,7 +12,7 @@ export function createSmelteryDiv(ore) {
   let smelteryDiv = getElement("ore-smelt-template");
   // replace any occurrences of template with parameter name
   let newinnerHTML = smelteryDiv.innerHTML.replace(/template/g, ore.name);
-    console.log(newinnerHTML);
+   
 
   // create a new ore div cointainer
   let newConatiner = document.createElement("div");

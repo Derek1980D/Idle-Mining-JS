@@ -77,15 +77,17 @@ export function gameSetup() {
       game.ores[i].stats.miners = statArray[1][i].stats.miners;
       game.ores[i].stats.total = statArray[1][i].stats.total;
       game.oreProgression.shift();
+       if (statArray[2].length > i){
+        initSmeltery(game, game.ores[i]);
+       } else {
+          createSmelteryUnlockDiv(game, game.ores[i]);
+       }
     }
-    if (statArray[2].length === 0) {
-       for (let i = 0; i < statArray[1].length; i++) {
-      createSmelteryUnlockDiv(game, game.ores[i]);
-    }
-  }
+    
+  
     // loop though stats array 2 to load smelteries
     for (let i = 0; i < statArray[2].length; i++) {
-      initSmeltery(game, game.ores[i]);
+     
       game.smelteries[i].stats.totalBars = statArray[2][i].stats.totalBars;
       game.smelteries[i].stats.smeltProgress =
         statArray[2][i].stats.smeltProgress;

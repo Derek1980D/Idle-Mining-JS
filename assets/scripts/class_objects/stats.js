@@ -27,6 +27,6 @@ export function updateStats(game) {
       `<span style='color:${game.smelteries[i].color}'>${game.smelteries[i].name} bars:</span>` +
       "<br />" +
       `<span style='color:white'> ${game.smelteries[i].stats.totalBars}</span`;
-      console.log(game.smelteries[i].stats.totalBars);
+    
   }
 }
