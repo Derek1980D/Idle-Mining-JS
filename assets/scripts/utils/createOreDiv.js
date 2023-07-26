@@ -1,7 +1,8 @@
 import { getElement } from "./getEle.js";
 
 /**
- *
+ * function to create an ore div and add it to the ore play area
+ * 
  * @param {string} name Name of the ore
  * @param {string} color Color for div styling
  */

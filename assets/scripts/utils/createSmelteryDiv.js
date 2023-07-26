@@ -2,8 +2,10 @@ import { getElement } from "./getEle.js";
 
 /**
  *
- * @param {string} name Name of the ore
- * @param {string} color Color for div styling
+ * function to create a smeltery div and add it to the smeltery play area
+ * 
+ * @param {object} name the ore to create a smeltery for 
+ * 
  */
 export function createSmelteryDiv(ore) {
   // copy the template div

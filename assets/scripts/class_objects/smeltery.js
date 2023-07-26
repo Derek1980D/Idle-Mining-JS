@@ -1,13 +1,18 @@
 import { getElement } from "../utils/getEle.js";
 import { createSmelteryDiv } from "../utils/createSmelteryDiv.js";
-
+/**
+ * function to create a smeltery and add it to 
+ * the games smelter array
+ * 
+ * @param {object } game the game object
+ * @param {object} ore the ore object
+ * 
+ */
 export function initSmeltery(game, ore) {
   createSmelteryDiv(ore);
   let smelteryStats = document.createElement("div");
-  smelteryStats.setAttribute("id", ore.name + "-bar-stats");
-
+  smelteryStats.setAttribute("id", ore.name + "-bar-stats")
   let statsPanel = getElement(ore.name+"-stats");
-
   statsPanel.appendChild(smelteryStats);
   // create a smeltery object
   let smeltery = {};
@@ -29,6 +34,7 @@ export function initSmeltery(game, ore) {
     divText: getElement("smelt-" + ore.name + "-text"),
     progessBar: getElement("smelt-" + ore.name + "-progress"),
   };
+  // function to update the smeltery div
   smeltery["update"] = (interval) => {
     smeltery.divs.divText.innerHTML =
       "Smelt " +

@@ -1,13 +1,14 @@
 import { getElement } from "./getEle.js";
-
-export function setUpMenu(){
-  // !!!!--------- >>>>>>>>  loop to create tehse for less code?
+/**
+ * function to set up the game menu
+ */
+export function setUpMenu() {
   let mineMenu = getElement("game-menu-mine-div");
   let smeltMenu = getElement("game-menu-smelt-div");
   let craftMenu = getElement("game-menu-craft-div");
   let settingsMenu = getElement("game-menu-settings-div");
   getElement("ore-play-area-div").style.display = "flex";
-  // !!! --------implement svg stroke style changes possibly
+
   mineMenu.style.backgroundColor = "green";
   mineMenu.addEventListener("click", () => {
     getElement("ore-play-area-div").style.display = "flex";

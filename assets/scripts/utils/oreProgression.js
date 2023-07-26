@@ -1,5 +1,9 @@
-// add progression elements to array 
-
+/**
+ * function to return an array of game ore objects
+ * add a new ore with all the paramaters to expand the game progression
+ * 
+ * @returns ore progression as an array of objects
+ */
 export function getOreProgression() {
     let OreProgression = []
     

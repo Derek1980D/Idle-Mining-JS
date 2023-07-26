@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link to javascript -->
-    
+
     <!-- link to css-->
     <link rel="stylesheet" href="./assets/CSS/style.css">
     <!-- Font awsome script-->
@@ -12,11 +13,12 @@
 
     <title>Idle Miner JS</title>
 </head>
+
 <body>
     <!-- Game logo and title-->
     <header class="title-header">
         <div class="ore-pic">
-        
+
         </div>
         Idle Miner JS
         <div class="pick-pic">
@@ -30,10 +32,10 @@
             <p>Idle Miner JS is an idle/incremental game about mining and smelting</p>
         </div>
         <div class="newgame-load-buttons">
-            <button class="start-game-button "onclick="newButton()">New Game</button>
+            <button class="start-game-button " onclick="newButton()">New Game</button>
             <button class="start-game-button" onclick="loadButton()">Load Game</button>
             <!-- add link to tutorial-->
-            
+
         </div>
         <div class="link-to-tutorial"><a href="tutorial.html">Click here for a tutorial</a> </div>
     </main>
@@ -48,24 +50,26 @@
                 <a href="https://twitter.com" target="_blank" rel="noopener"
                     aria-label="Visit Our Twitter page(opens in a new tab)"><i class="fab fa-twitter"></i></a>
             </li>
-            
-            
+
+
             <li>
                 <a href="https://www.wikipedia.org/" target="_blank" rel="noopener"
-                    aria-label="Visit Our wikipedia page(opens in a new tab)"><i class="fa-brands fa-wikipedia-w"></i></a>
+                    aria-label="Visit Our wikipedia page(opens in a new tab)"><i
+                        class="fa-brands fa-wikipedia-w"></i></a>
             </li>
         </ul>
     </footer>
     <script>
-        function newButton(){
+        function newButton() {
             localStorage.clear()
             window.location.href = "game.html";
         }
-        function loadButton(){
+        function loadButton() {
             localStorage.setItem("loadSave", "true");
             window.location.href = "game.html";
-            
+
         }
     </script>
 </body>
+
 </html>

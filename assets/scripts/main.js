@@ -55,8 +55,9 @@ let gameLoop = (timestamp) => {
  
   // save game stats to local storage
   game.saveStats();
-  game.lastTimeStamp = timestamp;
   
+  game.lastTimeStamp = timestamp;
+  // go to the beggining of the loop
   window.requestAnimationFrame(gameLoop);
  
 };

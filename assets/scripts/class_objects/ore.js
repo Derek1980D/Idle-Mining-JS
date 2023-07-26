@@ -1,8 +1,16 @@
-
 import { getElement } from "../utils/getEle.js";
 import { createOreDiv } from "../utils/createOreDiv.js";
-import { createSmelteryUnlockDiv } from "../utils/createSmelteryUnockDiv.js";
-export function initOre(game, oreName, color, _multiplier, smeltTime, smeltCost, smelteryUnlockCost) {
+// function to return an ore as an object
+export function initOre(
+  game,
+  oreName,
+  color,
+  _multiplier,
+  smeltTime,
+  smeltCost,
+  smelteryUnlockCost
+) {
+  
   createOreDiv(oreName, color);
   // add new ore to stats panel
   let oreStats = document.createElement("div");
@@ -12,15 +20,14 @@ export function initOre(game, oreName, color, _multiplier, smeltTime, smeltCost,
   oreStats.style.padding = "2px";
   oreStats.style.marginTop = "5px";
   oreStats.style.width = "90%";
-  oreStats.setAttribute("class", "stat-item")
-  //
+  oreStats.setAttribute("class", "stat-item");
   let statsPanel = getElement("stats-div");
   statsPanel.appendChild(oreStats);
   let oreTotal = document.createElement("div");
   oreTotal.setAttribute("id", oreName + "-ore-total");
   oreStats.appendChild(oreTotal);
   oreTotal.innerHTML = "hi";
-
+  // create an ore object
   let ore = {};
   ore["name"] = oreName;
   ore["multiplier"] = _multiplier;
@@ -34,7 +41,6 @@ export function initOre(game, oreName, color, _multiplier, smeltTime, smeltCost,
     smeltTime: smeltTime,
     smeltCost: smeltCost,
   };
- ;
   ore["color"] = color;
 
   ore["divs"] = {
@@ -60,22 +66,16 @@ export function initOre(game, oreName, color, _multiplier, smeltTime, smeltCost,
     game.coins.totalCoins += ore.stats.total * ore.stats.value;
     ore.stats.total = 0;
   });
-
+  // update ore div with stats
   ore["update"] = () => {
     ore.stats.total += ore.stats.miners * ore.stats.perMiner;
-    //
     ore.divs.divText.innerHTML = `<span style='color:${color}'>${ore.name}</span>: ${ore.stats.total}<br>Miners: ${ore.stats.miners}<br><span style='color:${color}'>${ore.name}</span>/Miner: ${ore.stats.perMiner}`;
-    //
     ore.divs.minerText.innerHTML =
       "Cost: " +
       ore.stats.minerCost +
       `<span style='color:${game.coins.color}'> Coins</span>`;
-    //
+
     ore.divs.sellText.innerHTML = `<span style='color:${color}'>${ore.name}</span> Value:  <span style='color:${game.coins.color}'> ${ore.stats.value}</span>     `;
   };
-  
- 
   game.ores.push(ore);
-
-  
 }

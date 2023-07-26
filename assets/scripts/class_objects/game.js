@@ -7,13 +7,9 @@ import { getOreProgression } from "../utils/oreProgression.js";
 import { setUpMenu } from "../utils/menuSetup.js";
 // main game setup, returns a game object
 export function gameSetup() {
-  // declare gmae as an object
+  // declare game as an object
   let game = {};
-  // game stats for save and load
-  game["stats"] = {
-    totalOres: [],
-    totalBars: [],
-  };
+
   // some game variables for timing intervals
   game["lastTimeStamp"] = 0;
   game["sinceTimeStamp"] = 0;
@@ -27,7 +23,7 @@ export function gameSetup() {
   game["start"] = () => {
     setUpMenu();
     initCoins(game);
-    // init the first item in ore progression
+    // init the first item in ore progression if its a new game
     if (localStorage.getItem("loadSave") != "true") {
       initOre(
         game,
@@ -38,7 +34,7 @@ export function gameSetup() {
         game.oreProgression[0].smeltCost,
         game.oreProgression[0].smelteryUnlockCost
       );
-
+      // remove the first item from ore progression
       game.oreProgression.shift();
       createUnlockOreDiv(
         game,
@@ -50,6 +46,7 @@ export function gameSetup() {
     }
     localStorage.setItem("loadSave", "true");
   };
+  // function to save game stats
   game["saveStats"] = () => {
     let coinTotal = game.coins.totalCoins;
     let oreStats = game.ores;
@@ -61,34 +58,39 @@ export function gameSetup() {
     let statsString = JSON.stringify(stats);
     localStorage.setItem("stats", "" + statsString);
   };
+  // function to oad game stats
   game["loadStats"] = () => {
-    let statSTring = JSON.parse(localStorage.getItem("stats"));
-    game.coins.totalCoins = statSTring[0];
-
-    for (let i = 0; i < statSTring[1].length; i++) {
+    // parse the save string back to an array containg stats
+    let statArray = JSON.parse(localStorage.getItem("stats"));
+    game.coins.totalCoins = statArray[0];
+    // loop though stats array 1 to load ores
+    for (let i = 0; i < statArray[1].length; i++) {
       initOre(
         game,
-        statSTring[1][i].name,
-        statSTring[1][i].color,
-        statSTring[1][i].multiplier,
-        statSTring[1][i].stats.smeltTime,
-        statSTring[1][i].stats.smeltCost,
-        statSTring[1][i].stats.smelteryUnlockCost
+        statArray[1][i].name,
+        statArray[1][i].color,
+        statArray[1][i].multiplier,
+        statArray[1][i].stats.smeltTime,
+        statArray[1][i].stats.smeltCost,
+        statArray[1][i].stats.smelteryUnlockCost
       );
-      game.ores[i].stats.miners = statSTring[1][i].stats.miners;
-      game.ores[i].stats.total = statSTring[1][i].stats.total;
+      game.ores[i].stats.miners = statArray[1][i].stats.miners;
+      game.ores[i].stats.total = statArray[1][i].stats.total;
       game.oreProgression.shift();
-       
-      }
-      if (statSTring[2].length === 0) {
-        createSmelteryUnlockDiv(game, game.ores[0]);
-      }
-    for (let i = 0; i < statSTring[2].length; i++) {
-     initSmeltery(game, game.ores[i]);
-      game.smelteries[i].stats.totalBars = statSTring[2][i].stats.totalBars;
-      game.smelteries[i].stats.smeltProgress = statSTring[2][i].stats.smeltProgress;
     }
-   
+    if (statArray[2].length === 0) {
+       for (let i = 0; i < statArray[1].length; i++) {
+      createSmelteryUnlockDiv(game, game.ores[i]);
+    }
+  }
+    // loop though stats array 2 to load smelteries
+    for (let i = 0; i < statArray[2].length; i++) {
+      initSmeltery(game, game.ores[i]);
+      game.smelteries[i].stats.totalBars = statArray[2][i].stats.totalBars;
+      game.smelteries[i].stats.smeltProgress =
+        statArray[2][i].stats.smeltProgress;
+    }
+
     if (game.oreProgression.length >= 1) {
       createUnlockOreDiv(
         game,
@@ -100,5 +102,3 @@ export function gameSetup() {
 
   return game;
 }
-
-

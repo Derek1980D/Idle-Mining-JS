@@ -2,27 +2,27 @@ import { getElement } from "./getEle.js";
 import { initSmeltery } from "../class_objects/smeltery.js";
 /**
  *
- * @param {string} name name of next unlock
- * @param {integer} cost cost of next unlock
+ * @param {object} game the game object
+ * @param {object} ore the ore to create a smeltry unlock for
  */
 export function createSmelteryUnlockDiv(game, ore) {
   let smelteryUnlockDiv = getElement("unlock-smeltery-template");
 
   let newinnerHTML = smelteryUnlockDiv.innerHTML.replace(/template/g, ore.name);
-/// --!! spelling
-  let newConatiner = document.createElement("div");
-  newConatiner.setAttribute("id", ore.name + "-div");
-  newConatiner.setAttribute("class", "smelt-div-container-css");
+
+  let newContainer = document.createElement("div");
+  newContainer.setAttribute("id", ore.name + "-div");
+  newContainer.setAttribute("class", "smelt-div-container-css");
 
   let mainDiv = getElement("smelt-play-area-contents-div");
-  mainDiv.appendChild(newConatiner);
+  mainDiv.appendChild(newContainer);
 
   let newDiv = document.createElement("div");
   newDiv.setAttribute("id", ore.name + "unlock-div");
   newDiv.setAttribute("class", "unlock-smeltery-div-css");
   newDiv.innerHTML = newinnerHTML;
 
-  newConatiner.appendChild(newDiv);
+  newContainer.appendChild(newDiv);
 
   let unlockText = getElement(ore.name + "-smeltery-unlock-text");
 
@@ -37,7 +37,7 @@ export function createSmelteryUnlockDiv(game, ore) {
   unlockButton.addEventListener("click", () => {
     if (game.coins.totalCoins >= ore.stats.smelteryUnlockCost) {
       initSmeltery(game, ore);
-      newConatiner.remove();
+      newContainer.remove();
     }
   });
 }

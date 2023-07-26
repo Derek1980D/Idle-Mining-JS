@@ -1,16 +1,16 @@
 # Idle Miner JS
 
 Idle Miner JS is an idle/incremental game made with html and javascript.
-
+At the moment only ores and smelting are implemented.
 Mine and sell ores for coins, use coins to upgrade mining speed, make more coins to buy further options like
 
 * More valuable ores
 * Smelting ores into bars
-* Upgrades from the upgrades menu
 
-[//]: # (add a link to the game here)
 
-[//]: # (add a link to responsive mockup here)
+ https://derek1980d.github.io/Idle-Mining-JS/index.html
+
+![Getting Started](./assets/images/Mockup.png)
 
 ## Features 
 
@@ -21,9 +21,10 @@ __Home page__
 
 __The Game__ 
 
-  * The main game page will have a header containing information on coins.
-  * footer with links to ore, smelting or upgrades.
-  * A main section, that will show info on your current selection(ore, smelting or upgrades menu). Here you can upgrade and unlock new features.
+The main game page will have
+  * Stats panel, to show info on coins, ores, bars etc.
+  * Menu for switcing between game areas or accessing the option.
+  * Play area, will display the area selected from the game menu, ores or smelting so far
 
 [//]: # (some screenshots here?)
 
@@ -37,13 +38,19 @@ __The Game__
 
   - [W3C validator](https://validator.w3.org)
 
-[//]: # (show any errros and fixes here)
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fderek1980d.github.io%2FIdle-Mining-JS%2Fgame.html
+No errors
 
 - CSS
 
   -  [(Jigsaw) validator](https://jigsaw.w3.org/css-validator)
 
- [//]: # (show any errros and fixes here)
+https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fderek1980d.github.io%2FIdle-Mining-JS%2Fgame.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en 
+No errors
+
+
+- I have tested all the buttons an menu links in the game to make sure the function correctly with no problems.
+
 ## Deployment
 
 
@@ -53,7 +60,7 @@ __The Game__
   - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
 
 The live link can be found here - 
-[//]: # (game link here)
+ https://derek1980d.github.io/Idle-Mining-JS/index.html
 
 ## Credits 
 
